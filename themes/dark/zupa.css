@@ -1,0 +1,1952 @@
+html { height: 100%; }
+
+body {
+    min-height: 100%;
+    height: 100%;
+    min-width: 100%;
+    padding: 0px;
+    margin: 0px;
+    color: #E3EAEF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    overflow: hidden;
+    background: #353b3f;
+}
+
+/* =================== STYLES =================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin: 0px 0px 20px 0px;
+}
+
+h1 { font-size: 28px; color: #E3EAEF }
+h2 { font-size: 24px; color: #E3EAEF }
+h3 { font-size: 20px; color: #E3EAEF }
+h4 { font-size: 16px; color: #E3EAEF }
+h5 { font-size: 12px; color: #E3EAEF }
+h6 { font-size: 10px; color: #E3EAEF }
+
+p {}
+
+
+
+/* =================== TEXT PANE =================== */
+.gui-text-pane {
+    display: block;
+    padding: 10px;
+    color: #9AA2A8;
+}
+
+
+/* =================== BUTTONS =================== */
+
+.gui-btn {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    background: url(img/gui-button.png) 0 0 repeat-x;
+    padding: 6px 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #B1B7BC;
+    text-decoration: none;
+    border: none;
+    border-right: 1px solid #202527;
+    border-left: 1px solid #202527;
+    border-bottom: 1px solid #202527;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.gui-btn:hover {
+    background-position: 0px -30px;
+    color: #bac6d0;
+}
+
+.gui-btn:active {
+    background-position: 0px -60px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+button.gui-btn {
+	height: 30px;
+}
+
+.gui-btn.btn-small {
+	height: 24px;
+	line-height: 24px;
+	padding: 0px 10px;
+}
+
+.gui-btn.btn-bold {
+	font-weight: 700;
+}
+
+.gui-btn.btn-fill {
+	text-align: left;
+	display: block;
+}
+
+/* Font Awesome - icon */
+.gui-btn .fa {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* Icon */
+.gui-btn i.icon {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+
+
+/* =================== TEST CHILD =================== */
+.testchild {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: firebrick;
+}
+
+.childinner {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: block;
+    background-color: dodgerblue;
+}
+
+
+
+/* =================== WINDOW =================== */
+.gui-window {
+	display: block;
+	position: absolute;
+	background-color: #858F99;
+	padding: 28px 8px 8px 6px;
+	border: 1px solid #212528;
+	
+	background: #3a4146; /* Old browsers */
+	background: -moz-linear-gradient(top,  #3a4146 0%, #4a5359 50%, #353b3f 51%, #424a50 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3a4146), color-stop(50%,#4a5359), color-stop(51%,#353b3f), color-stop(100%,#424a50)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a4146', endColorstr='#424a50',GradientType=0 ); /* IE6-9 */
+
+	
+	-moz-box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+	-webkit-box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+	-o-box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+	box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+}
+
+.gui-window-helper {
+	display: block;
+	border: 1px dashed #858f99;
+}
+
+.gui-window .frame {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #1f2325;
+	background-color: #2a2f33;
+	overflow: hidden;
+	
+    -webkit-box-shadow: 0px 1px 0px 0px #5f6569;
+    -moz-box-shadow: 0px 1px 0px 0px #5f6569;
+    box-shadow: 0px 1px 0px 0px #5f6569;
+}
+
+.gui-window .frame iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	background-color: #2a2f33;
+	overflow: hidden;
+}
+
+.gui-window .titlebar {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 28px;
+	
+	background: #3a4146; /* Old browsers */
+	background: -moz-linear-gradient(top,  #475158 0%, #3a4146 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#475158), color-stop(100%,#3a4146)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #475158 0%,#3a4146 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #475158 0%,#3a4146 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #475158 0%,#3a4146 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #475158 0%,#3a4146 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#475158', endColorstr='#3a4146',GradientType=0 ); /* IE6-9 */
+	
+    -webkit-box-shadow: inset 0px 1px 0px 0px #73797e;
+    -moz-box-shadow: inset 0px 1px 0px 0px #73797e;
+    box-shadow: inset 0px 1px 0px 0px #73797e;
+
+}
+
+.gui-window .titlebar .icon {
+	width: 16px;
+	height: 16px;
+	margin: 6px 0px 6px 5px;
+}
+
+.gui-window .titlebar .title {
+	display: inline-block;
+	margin-left: 10px;
+	line-height: 27px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+	color: #f1f1f1;
+}
+
+.gui-window .titlebuttons {
+	position: absolute;
+	top: 0px;
+	right: 6px;
+	height: 28px;
+	z-index: 1;
+}
+
+.gui-window .titlebuttons > div {
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin: 4px 0px 3px 0px;
+	cursor: pointer;
+	background-image: url(img/gui-window-btns.png);
+	z-index: 2;
+}
+	
+.gui-window .titlebuttons > div:nth-child(2) {
+	margin: 4px 1px 3px 1px;
+}
+
+.gui-window .titlebuttons .minimize-btn {
+	background-position: 0px 0px;
+}
+	
+.gui-window .titlebuttons .minimize-btn:hover {
+	background-position: 0px -21px;
+}
+	
+.gui-window .titlebuttons .minimize-btn:active {
+	background-position: 0px -42px;
+}
+	
+.gui-window .titlebuttons .maximize-btn {
+	background-position: -22px 0px;
+}
+	
+.gui-window .titlebuttons .maximize-btn:hover {
+	background-position: -22px -21px;
+}
+	
+.gui-window .titlebuttons .maximize-btn:active {
+	background-position: -22px -42px;
+}
+	
+.gui-window .titlebuttons .close-btn {
+	background-position: -44px 0px;
+}
+	
+.gui-window .titlebuttons .close-btn:hover {
+	background-position: -44px -21px;
+}
+	
+.gui-window .titlebuttons .close-btn:active {
+	background-position: -44px -42px;
+}
+	
+/* Maximized */
+.gui-window.maximized {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	border-radius: 0px;
+}
+
+/* Dialog */
+.gui-window .dialog-message {
+	text-align: center;
+	margin: 25px 40px 0px 40px;
+	height: 55px;
+}
+
+.gui-window .dialog-buttons {
+	text-align: center;
+}
+
+
+
+
+
+/* =================== MAIN MENU =================== */
+.gui-main-menu {
+	float: right;
+	margin-right: 20px;
+}
+
+.gui-main-menu .gui-main-menu-buttons {
+    list-style: none;
+}
+
+.gui-main-menu .gui-main-menu-buttons li {
+    float: left;
+    padding: 15px 25px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 10px;
+    color: #7b848b;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.gui-main-menu .gui-main-menu-buttons li:hover {
+    background-color: #1f2325;
+    color: #E3EAEF;
+}
+
+.gui-main-menu .gui-main-menu-submenu {
+	list-style: none;
+	margin: 0;
+	padding: 5px;
+	position: absolute;
+	top: 60px;
+	background-color: #32383c;
+	border-top: 1px solid #595f63;
+	
+    -webkit-box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.5);
+}
+
+.gui-main-menu .gui-main-menu-submenu .gui-main-menu-submenu-button {
+	padding: 8px 20px;
+	font-weight: 800;
+	text-transform: uppercase;
+	text-align: center;
+	min-width: 100px;
+	color: #c5d1da;
+}
+
+.gui-main-menu .gui-main-menu-submenu .gui-main-menu-submenu-button:hover {
+	background-color: #262b2e;
+	cursor: pointer;
+}
+
+
+/* =================== PANES =================== */
+.gui-panes {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gui-pane {
+    display: block;
+    position: absolute !important;
+    background-color: #2A2F33;
+    border: 1px solid #212528;
+}
+
+.gui-pane.pane-closed {
+	border-color: #2C3135;
+}
+
+.pane-container {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gui-pane.pane-parent {
+    background-color: transparent;
+    border: none;
+}
+
+.gui-pane.pane-parent > .pane-container {
+    overflow: visible;
+}
+
+/* =================== TABLE =================== */
+
+.gui-table {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Header */
+.gui-table-header {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 26px;
+    width: 100%;
+    background: url(img/gui-table-bkg.png) 0 0 repeat-x;
+    overflow: hidden;
+}
+
+.gui-table-header .holder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: auto;
+}
+
+.gui-table-header .holder .column {
+    position: absolute;
+    overflow: hidden;
+    border: none;
+    border-right: 1px solid #3d4246;
+    border-left: 1px solid #303539;
+    height: 26px;
+}
+
+.gui-table-header .holder .column:hover {
+    background: url(img/gui-table-bkg.png) 0 -30px repeat-x;
+}
+
+.gui-table-header .holder .column:first-child {
+    border-left: none;
+}
+
+.gui-table-header .holder .column:last-child {
+    border-right: none;
+}
+
+.gui-table-header .column .inner {
+    display: inline-block;
+    line-height: 16px;
+    margin: 5px 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.gui-table-header .column .resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    cursor: col-resize;
+}
+
+.gui-table-header .column .resize-handle:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.gui-table-header .column.column-sort-asc, .gui-table-header .column.column-sort-desc {
+	background: url(img/gui-table-bkg.png) 0 -30px repeat-x;
+}
+
+.gui-table-header .column.column-sort-asc .column-menu-button {
+	display: block;
+	background-position: 0px -60px;	
+}
+
+.gui-table-header .column.column-sort-desc .column-menu-button {
+	display: block;
+	background-position: 0px -80px;	
+}
+
+/* Column menu */
+.gui-table .column-menu {
+    display: inline-block;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    padding: 5px;
+    z-index: 1;
+    width: 140px;
+
+    background-color: #394045;
+    border: 1px solid #212528;
+
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+
+}
+
+.gui-table .column-menu .column-menu-arrow {
+    position: absolute;
+    top: -8px;
+    left: 3px;
+    height: 9px;
+    width: 11px;
+    background: url(img/gui-table-column-menu-arrow.png) 0 0 no-repeat;
+}
+
+.gui-table .column-menu.menu-reversed .column-menu-arrow {
+	left: auto;
+	right: 3px;
+}
+
+.gui-table .column-menu .gui-btn {
+	margin-bottom: 3px;
+}
+
+.gui-table .column-menu .gui-btn:last-child {
+	margin-bottom: 0px;
+}
+
+/* Column button */
+.gui-table-header .column .column-menu-button {
+    display: none;
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: url(img/gui-table-column-btn.png) 0 0 no-repeat;
+}
+
+.gui-table-header .column .column-menu-button:hover {
+    background-position: 0 -20px;
+}
+
+.gui-table-header .column .column-menu-button:active {
+    background-position: 0 -40px;
+}
+
+.gui-table-header .column:hover .column-menu-button {
+    display: block;
+}
+
+.gui-table-header .column .column-menu-button.selected {
+	display: block;
+    background-position: 0 -20px;
+}
+
+
+/* Content */
+.gui-table-content {
+    display: block;
+    position: absolute;
+    top: 26px;
+    left: 0;
+    overflow: auto;
+    width: 100%;
+}
+
+.gui-table-content table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.gui-table-content table tr {
+    background-color: #2a2f33;
+    height: 24px;
+}
+
+.gui-table-content table td {
+    display: table-cell;
+    border-top: 1px solid #3c4044;
+    border-bottom: 1px solid #24282b;
+    border-left: 1px solid #25292d;
+    border-right: 1px solid #2e3337;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-size: 11px;
+    height: 24px;
+    color: #818588;
+}
+
+.gui-table-content table td:first-child {
+    border-left: none;
+}
+
+.gui-table-content table td:last-child {
+    border-right: none;
+}
+
+.gui-table-content td .inner {
+    display: inline-block;
+    margin: 4px 6px;
+    line-height: 16px;
+}
+
+.gui-table-content table td.identifier {
+    border-right: 1px solid #d0d0d0;
+    border-bottom: 1px solid #e9e9e9;
+    background-color: #f6f6f6;
+    text-align: right;
+}
+
+.gui-table-content table tr:hover td {
+    background-color: #23282b;
+    border-top: 1px solid #23282b;
+    border-left-color: #1e2225;
+    border-right-color: #272c30;
+    cursor: pointer;
+    color: #E3EAEF;
+}
+
+.gui-table-content table tr:active td {
+    background-color: #1e2124;
+    border-top: 1px solid #1d2022;
+    border-bottom: 1px solid #1c1f22;
+    border-left-color: #17191c;
+    border-right-color: #212428;
+    cursor: pointer;
+    color: #E3EAEF;
+}
+
+.gui-table-content .column-marker {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+}
+
+/*Footer */
+.gui-table-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 40px;
+    display: block;
+    overflow: hidden;
+    background: url(img/gui-table-bkg.png) 0 -60px repeat-x;
+}
+
+.gui-table-footer .message-box {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    color: #bfc4c8;
+}
+
+
+
+/* =================== LOADER =================== */
+
+.gui-loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(img/gui-loader-overlay-bkg.png) 0 0 repeat;
+	z-index: 5;
+}
+
+.gui-loader .loader-box {
+    display: inline-block;
+    position: absolute;
+    padding: 10px;
+    width: 140px;
+
+    background-color: #394045;
+    border: 1px solid #212528;
+
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+}
+
+.gui-loader .loader-message {
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	color: #d7dfe6;
+}
+
+.gui-loader .loader-progress {
+  margin: 15px auto;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.gui-loader .loader-progress > div {
+  background-color: #d7dfe6;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  margin: 0px 2px;
+  
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.gui-loader .loader-progress .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.gui-loader .loader-progress .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.gui-loader .loader-progress .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.gui-loader .loader-progress .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+
+/* =================== TABS =================== */
+
+.gui-tabs .tab-container {
+    width: 100%;
+    position: absolute;
+    top: 34px;
+    left: 0;
+    display:  block;
+    overflow: hidden;
+}
+
+.gui-tabs .tab-container > div {
+    position: absolute;
+    display:  block;
+    width: 100%;
+    height: 100%;
+}
+
+.gui-tabs .tab-pane {
+    height: 34px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(img/gui-tabs-bkg.png) 0 0 repeat-x;
+    overflow: hidden;
+}
+
+.gui-tabs .tab-pane .tab-pane-container {
+    float: left;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 34px;
+}
+
+.gui-tabs .gui-tab {
+    position: relative;
+    height: 33px;
+    float: left;
+    background: url(img/gui-tabs-bkg.png) 0 -34px repeat-x;
+}
+
+.gui-tabs .gui-tab .tab-center {
+    float: left;
+    display: inline-block;
+    height: 33px;
+    line-height: 31px;
+    padding: 0 10px;
+    color: #61676b;
+}
+
+.gui-tabs .gui-tab .tab-left, .gui-tabs .gui-tab .tab-right {
+    float: left;
+    display: inline-block;
+    width: 10px;
+    height: 33px;
+}
+
+.gui-tabs .gui-tab .tab-left {
+    background: url(img/gui-tabs-borders.png) left 0 no-repeat;
+}
+
+.gui-tabs .gui-tab .tab-right {
+    background: url(img/gui-tabs-borders.png) right -33px no-repeat;
+}
+
+.gui-tabs .gui-tab:first-child .tab-left {
+    background: none;
+    width: 9px;
+}
+
+/* Hover */
+.gui-tabs .gui-tab:hover {
+    background: url(img/gui-tabs-bkg.png) 0 -67px repeat-x;
+    cursor: pointer;
+}
+
+.gui-tabs .gui-tab:hover .tab-center {
+    color: #ABAFB2;
+}
+
+.gui-tabs .gui-tab:hover .tab-right {
+    background: none;
+}
+
+/* Active */
+.gui-tabs .gui-tab.active {
+    background: url(img/gui-tabs-active.png) 0 0 repeat-x;
+    height: 34px;
+}
+
+.gui-tabs .gui-tab.active .tab-center {
+    color: #E3EAEF;
+}
+
+.gui-tabs .gui-tab.active .tab-left {
+    background: url(img/gui-tabs-active.png) left -34px no-repeat;
+    height: 34px;
+}
+
+.gui-tabs .gui-tab.active .tab-right {
+    background: url(img/gui-tabs-active.png) right -34px no-repeat;
+    height: 34px;
+}
+
+.gui-tabs .gui-tab:first-child.active .tab-left {
+    background: none;
+    width: 9px;
+}
+
+.gui-tabs .gui-tab.tab-toright .tab-left {
+    background: url(img/gui-tabs-active-shadow.png) left 0px no-repeat;
+}
+
+.gui-tabs .gui-tab.tab-toleft .tab-right {
+    background: url(img/gui-tabs-active-shadow.png) right -33px no-repeat;
+}
+
+/* Close button */
+.gui-tabs .tab-close-btn {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    background: url(img/gui-tabs-close-btn.png) 0 0 no-repeat;
+}
+
+.gui-tabs .tab-close-btn:hover {
+    background-position: 0px -14px;
+}
+
+.gui-tabs .tab-close-btn:active {
+    background-position: 0px -28px;
+}
+
+/* Expand button/menu */
+.gui-tabs .tab-pane .tab-pane-expand {
+    position: absolute;
+    top: 0px;
+    right: -1px;
+    width: 29px;
+    height: 34px;
+    z-index: 1;
+    background: url(img/gui-tabs-expand-btn.png) 0 0 no-repeat;
+}
+
+.gui-tabs .tab-pane .tab-pane-expand:hover {
+    background-position: 0px -34px;
+    cursor: pointer;
+}
+
+.gui-tabs .tab-pane .tab-pane-expand:active {
+    background-position: 0px -68px;
+    cursor: pointer;
+}
+
+.gui-tabs .tab-pane .tab-pane-expand.selected {
+    background-position: 0px -102px;
+    cursor: pointer;
+}
+
+.gui-tabs .tab-pane-expand-menu {
+    display: inline-block;
+    position: absolute;
+    top: 32px;
+    right: 0px;
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    z-index: 1;
+
+    background-color: #33393d;
+    border: 1px solid #222629;
+    border-right: none;
+
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+
+}
+
+.gui-tabs .tab-pane-expand-menu .top-border {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 1px;
+    width: 19px;
+    background-color: #33393d;
+}
+
+.gui-tabs .tab-pane-expand-menu li {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    padding: 0px 15px;
+    text-align: left;
+    min-width: 100px;
+    color: #61676b;
+
+    background-color: #262a2e;
+    border-left: 1px solid #222629;
+    border-right: 1px solid #222629;
+
+    border-bottom: 1px solid #1f2225;
+
+    -webkit-box-shadow: inset 0px 1px 0px 0px #2b2f31;
+    -moz-box-shadow: inset 0px 1px 0px 0px #2b2f31;
+    box-shadow: inset 0px 1px 0px 0px #2b2f31;
+}
+
+.gui-tabs .tab-pane-expand-menu li:nth-child(2) {
+    border-top: 1px solid #222629;
+}
+
+.gui-tabs .tab-pane-expand-menu li:last-child {
+    border-bottom: 1px solid #222629;
+}
+
+.gui-tabs .tab-pane-expand-menu li:hover {
+    background-color: #222629;
+    color: #ABAFB2;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #212427;
+    -moz-box-shadow: inset 0px 1px 0px 0px #212427;
+    box-shadow: inset 0px 1px 0px 0px #212427;
+}
+
+.gui-tabs .tab-pane-expand-menu li.active {
+    background: url(img/gui-tabs-active.png) 0 0px repeat-x;
+    color: #E3EAEF;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #474c51;
+    -moz-box-shadow: inset 0px 1px 0px 0px #474c51;
+    box-shadow: inset 0px 1px 0px 0px #474c51;
+}
+
+.gui-tabs .tab-pane-expand-menu li.tab-closeable {
+    padding-right: 25px;
+}
+
+
+
+/* =================== ACCORDION =================== */
+
+.gui-accordion {
+    display: block;
+    position: relative;
+    overflow: hidden !important;
+    width: 100%;
+    height: 100%;
+}
+
+.gui-accordion .accord {
+
+}
+
+.gui-accordion .titlebutton {
+    display: block;
+    padding: 0 6px;
+    height: 25px;
+    line-height: 26px;
+    color: #777b7f;
+    background: url(img/gui-accordion-bkg.png) 0 0 repeat-x;
+    cursor: pointer;
+    border-bottom: 1px solid #24282b;
+}
+
+.gui-accordion .titlebutton:hover {
+    color: #BFC5C9;
+}
+
+.gui-accordion .titlebutton:active {
+    background-position: 0 -50px;
+}
+
+.gui-accordion .accord.active .titlebutton, .gui-accordion .accord.active .titlebutton:hover, .gui-accordion .accord.active .titlebutton:active {
+    background-position: 0 -25px;
+    cursor: default;
+    border-bottom: 1px solid #33393d;
+    color: #E3EAEF;
+}
+
+
+.gui-accordion .accord.active {
+    background-color: #33393d;
+}
+
+.gui-accordion .contentpane {
+    position: relative;
+    display: none;
+    margin: 0 4px 5px 4px;
+    border: 1px solid #212528;
+    background-color: #2A2F33;
+}
+
+
+
+/* =================== THUMBNAIL =================== */
+.gui-thumb {
+    position: relative;
+    display: inline-block;
+    background: #262a2e;
+    -moz-box-shadow:    inset 0px 0px 2px #1f2225;
+    -webkit-box-shadow: inset 0px 0px 2px #1f2225;
+    box-shadow:         inset 0px 0px 2px #1f2225;
+    border-top: 1px solid #1c2023;
+    border-right: 1px solid #212529;
+    border-left: 1px solid #212529;
+    border-bottom: 1px solid #373c40;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.gui-thumb .thumb-image {
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.gui-thumb .thumb-menu {
+    display: none;
+    position: absolute;
+    background-color: red;
+}
+
+
+
+/* =================== BUTTON MENU =================== */
+.gui-button-menu {
+	display: block;
+	width: 100%;
+	height: 100%;
+	
+	background: #394045; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM5NDA0NSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyZDMyMzYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #394045 0%, #2d3236 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#394045), color-stop(100%,#2d3236)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #394045 0%,#2d3236 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #394045 0%,#2d3236 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #394045 0%,#2d3236 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #394045 0%,#2d3236 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#394045', endColorstr='#2d3236',GradientType=0 ); /* IE6-8 */
+
+	border-top: 1px solid #5c6266;
+	border-bottom: 1px solid #292d31;
+}
+
+.gui-button-menu .gui-button-menu-main {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-top:-1px;
+}
+
+.gui-button-menu .gui-button-menu-main li {
+	display: block;
+	float: left;
+	border-right: 1px solid #43494e;
+	border-left: 1px solid #292d31;
+	border-top: 1px solid #5c6266;
+	border-bottom: 1px solid #2b2f33;
+	color: #bcc1c5;
+	text-align: center;
+}
+
+.gui-button-menu .gui-button-menu-main li .button-label {
+	vertical-align: top;
+/* 	height: 20px; */
+/* 	line-height: 20px; */
+}
+
+.gui-button-menu .gui-button-menu-main li:first-child {
+	border-left: none;
+}
+
+.gui-button-menu .gui-button-menu-main li:last-child {
+	-webkit-box-shadow: 1px 0px 0px 0px #292d31;
+	-moz-box-shadow:    1px 0px 0px 0px #292d31;
+	box-shadow:         1px 0px 0px 0px #292d31;
+}
+
+.gui-button-menu .gui-button-menu-main li:hover {
+	cursor: pointer;
+	
+	background: #464e54; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ2NGU1NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzNDNhM2UiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #464e54 0%, #343a3e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#464e54), color-stop(100%,#343a3e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #464e54 0%,#343a3e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #464e54 0%,#343a3e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #464e54 0%,#343a3e 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #464e54 0%,#343a3e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#464e54', endColorstr='#343a3e',GradientType=0 ); /* IE6-8 */
+
+	border-top-color: #666d72;
+	border-bottom-color: #2e3337;
+	border-right-color: #494f55;
+	
+	color: #e3eaef;
+}
+
+.gui-button-menu .gui-button-menu-main li:active {
+	background: #25292d; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIzNCUiIHN0b3AtY29sb3I9IiMyNTI5MmQiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjgyYzMwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top,  #25292d 34%, #282c30 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(34%,#25292d), color-stop(100%,#282c30)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #25292d 34%,#282c30 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #25292d 34%,#282c30 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #25292d 34%,#282c30 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #25292d 34%,#282c30 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25292d', endColorstr='#282c30',GradientType=0 ); /* IE6-8 */
+	
+	border-top-color: #23272B;
+	border-right-color: #23272B;
+	border-bottom-color: #282c30;
+	
+	color: #e3eaef;
+}
+
+.gui-button-menu .gui-button-menu-main li.expanded {
+	background: #31363a; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMxMzYzYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iIzMzMzkzZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(top,  #31363a 0%, #33393d 55%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#31363a), color-stop(55%,#33393d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #31363a 0%,#33393d 55%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #31363a 0%,#33393d 55%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #31363a 0%,#33393d 55%); /* IE10+ */
+	background: linear-gradient(to bottom,  #31363a 0%,#33393d 55%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#31363a', endColorstr='#33393d',GradientType=0 ); /* IE6-8 */
+
+	border-top-color: #2d3135;
+	border-right-color: #3a4145;
+	border-bottom-color: #33393d;
+	border-left-color: #222629;
+}
+
+.gui-button-menu .gui-button-menu-main li i {
+	vertical-align: top;
+	font-size: 16px;
+	margin-right: 5px;
+	text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.gui-button-menu .gui-button-menu-main li.button-bolder .button-label {
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.gui-button-menu .gui-button-menu-main li.button-bigger .button-label {
+	padding: 0px 5px;
+}
+
+.gui-button-menu .gui-button-menu-main li.button-bigger i {
+	font-size: 22px;
+	margin-right: 0px;
+	margin-bottom: 7px;
+}
+
+/* Submenus */
+.gui-button-menu .gui-button-menu-submenu {
+	list-style: none;
+	display: inline-block;
+	position: absolute;
+	top: 28px;
+	left: 0px;
+	background-color: red;
+	margin: 0;
+	padding: 0;
+	min-width: 130px;
+	z-index: 91;
+	
+    background-color: #33393d;
+    border: 1px solid #222629;
+
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button {
+	position: relative;
+	height: 16px;
+	line-height: 16px;
+	padding: 6px 10px;
+	
+	border-bottom: 1px solid #2e3337;
+	border-top: 1px solid #3a4145;
+	
+	color: #bcc1c5;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button:hover {
+	background-color: #262a2e;
+	border-bottom-color: #262a2e;
+	border-top-color: #24272b;
+	cursor: pointer;
+	color: #e3eaef;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button i {
+	float: right;
+	vertical-align: top;
+	padding-top: 1px;
+	font-size: 14px;
+	margin-left: 15px;
+/* 	text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.1); */
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button i.fa {
+	width: 14px;
+	text-align: center;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button.expanded {
+	background-color: #262a2e;
+	border-bottom-color: #262a2e;
+	border-top-color: #24272b;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button .gui-button-expand-indicator {
+	position: absolute;
+	right: 0px;
+	top: 10px;
+	display: block;
+	background: url(img/gui-button-menu-submenu-arrows.png) 0px 0px no-repeat;
+	width: 5px;
+	height: 7px;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button .gui-button-expand-arrow {
+	display: none;
+	position: absolute;
+	right: -13px;
+	top: 2px;
+	background: url(img/gui-button-menu-submenu-arrows.png) 0px -13px no-repeat;
+	height: 27px;
+	width: 13px;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button.expanded .gui-button-expand-arrow {
+	display: block;
+}
+
+.gui-button-menu .gui-button-menu-submenu .gui-button-menu-bridge {
+	display: block;
+	position: absolute;
+	left: -1px;
+	top: -4px;
+	background: red;
+	height: 4px;
+	background-color: #33393d;
+	
+	border-right: 1px solid #3a4145;
+	border-left: 1px solid #222629;
+}
+
+
+
+/* =================== FORM =================== */
+
+.gui-form {
+    margin-top: 10px;
+}
+
+input, textarea, select {
+    background: #222629;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIyMjYyOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyNjJhMmUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #222629 0%, #262a2e 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#222629), color-stop(100%,#262a2e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #222629 0%,#262a2e 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #222629 0%,#262a2e 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #222629 0%,#262a2e 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #222629 0%,#262a2e 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222629', endColorstr='#262a2e',GradientType=0 ); /* IE6-8 */
+
+    -webkit-box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.06), 0px 1px 0px 0px #373c40;
+    -moz-box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.06), 0px 1px 0px 0px #373c40;
+    box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.06), 0px 1px 0px 0px #373c40;
+
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+
+    border: 1px solid #212529;
+    border-top-color: #1E2326;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #bac6d0;
+    padding: 0px 7px;
+    width: 250px;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+input[disabled], textarea[disabled], select[disabled] {
+    cursor: not-allowed;
+    color: #686E72;
+}
+
+input {
+    height: 28px;
+    line-height: 26px;
+}
+
+textarea {
+    resize: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: auto;
+    margin: 0;
+}
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    height: 28px;
+    line-height: 26px;
+    padding-right: 0;
+    padding-left: 2px;
+    width: 125%;
+    cursor: pointer;
+}
+
+/* Select */
+.gui-select {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 28px;
+    width: 250px;
+    margin-bottom: -3px;
+    border-right: 1px solid #212529;
+    -webkit-box-shadow: 0px 1px 0px 0px #373c40;
+    -moz-box-shadow: 0px 1px 0px 0px #373c40;
+    box-shadow: 0px 1px 0px 0px #373c40;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.gui-select .arrow {
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    width: 20px;
+    height: 21px;
+    background: url(img/gui-select-arrow.png) 0 0 no-repeat;
+    pointer-events:none;
+}
+
+.gui-select:hover .arrow {
+    background-position: 0px -21px;
+}
+
+.gui-select:active .arrow {
+    background-position: 0px -42px;
+}
+
+
+input[type="checkbox"] {
+    visibility: hidden;
+}
+
+/* Sizes */
+.input-xs {
+    width: 50px;
+}
+
+.input-sm {
+    width: 80px;
+}
+
+.input-md {
+    width: 120px;
+}
+
+.input-lg {
+    width: 180px;
+}
+
+.input-xl {
+    width: 250px;
+}
+
+.input-addon .input-xs {
+	width: 22px;
+}
+
+.input-addon .input-sm {
+	width: 52px;
+}
+
+.input-addon .input-md {
+	width: 92px;
+}
+
+.input-addon .input-lg {
+	width: 152px;
+}
+
+.input-addon .input-xl {
+	width: 222px;
+}
+
+
+
+
+/* Addon */
+.input-addon .addon {
+    float: left;
+    background-color: #212528;
+    height: 28px;
+    line-height: 27px;
+    color: #aab9c5;
+    text-align: center;
+    width: 28px;
+
+    -webkit-box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.06), 0px 1px 0px 0px #373c40;
+    -moz-box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.06), 0px 1px 0px 0px #373c40;
+    box-shadow: inset 1px 1px 2px 0px rgba(0,0,0,0.06), 0px 1px 0px 0px #373c40;
+
+    border: 1px solid #212529;
+    border-top-color: #1E2326;
+    border-right: 1px solid #1e2125;
+
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.input-addon .addon .fa {
+    font-size: 14px;
+}
+
+.input-addon input {
+    border-left: 1px solid #272b2e;
+}
+
+.input-addon.addon-right .addon {
+    float: right;
+    border-left: 1px solid #1e2125;
+    border-right: inherit;
+}
+
+.input-addon.addon-right input {
+    border-right: 1px solid #272b2e;
+    border-left: inherit;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group .label {
+    display: inline-block;
+    width: 120px;
+    color: #656c72;
+    text-align: right;
+    margin-right: 7px;
+    font-size: 11px;
+    vertical-align: top;
+    padding-top: 6px;
+}
+
+.form-group .field {
+    display: inline-block;
+}
+
+/* plain text */
+.form-group.text .label {
+	padding-top: 0px;
+}
+
+.form-group.text .field {
+	padding-top: 0px;
+	color: #bac6d0;
+}
+
+/* Button group */
+.button-group {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Titles */
+.form-title {
+    padding-left: 130px;
+    margin-bottom: 20px;
+}
+
+.form-title .title {
+	margin-bottom: 0px;
+}
+
+.form-title .subtitle {
+    font-size: 11px;
+    font-weight: 800;
+    color: #5A6063;
+}
+
+/* Divider */
+.form-divider {
+    margin-top: 15px;
+    padding-bottom: 14px;
+    border-top: 1px dotted #383d43;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Checkbox */
+.gui-checkbox {
+    width: 68px;
+    height: 29px;
+    background: url(img/gui-checkbox.png) 0 0 no-repeat;
+    margin-left: -1px;
+    position: relative;
+}
+
+.gui-checkbox input[type=checkbox] {
+    padding: 0;
+    height: 0;
+    width: 0;
+}
+
+.gui-checkbox label {
+    display: block;
+    width: 34px;
+    height: 25px;
+
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    transition: all .3s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+
+    background: url(img/gui-checkbox.png) 0px -30px no-repeat;
+}
+
+.gui-checkbox input[type=checkbox]:checked + label {
+    left: 30px;
+}
+
+/* Radio button */
+input[type="radio"] {
+    display:none;
+}
+input[type="radio"] + label {
+    display: block;
+    width: 26px;
+    height: 25px;
+    line-height: 25px;
+    margin: 3px 0px 5px -1px;
+    vertical-align: middle;
+    background: url(img/gui-radiobutton.png) 0 0 no-repeat;
+    cursor: pointer;
+    padding-left: 35px;
+    color: #889096;
+}
+input[type="radio"]:checked + label {
+    background:url(img/gui-radiobutton.png) 0px -30px no-repeat;
+    color: #bac6d0;
+}
+
+/* INDENTED */
+.gui-form.indented .button-group {
+	padding-left: 130px;
+}
+
+
+/* =================== ICONS =================== */
+i.icon {
+	display: inline-block;
+	line-height: 1;
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+}
+
+.icon.arrow-up {
+	background-image: url(img/icons/icon-arrow-up.png);
+}
+
+.icon.arrow-down {
+	background-image: url(img/icons/icon-arrow-down.png);
+}
+
+
+
+
+
+
+/* =================== JQUERY UI - CSS (Override) =================== */
+
+.ui-resizable {
+    position: absolute;
+}
+.ui-resizable-handle {
+    position: absolute;
+    font-size: 0.1px;
+    display: block;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+    display: none;
+}
+
+.ui-resizable-n {
+    cursor: row-resize;
+    height: 6px;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    background: url(img/gui-pane-resize-handle-horizontal.png) center center no-repeat;
+}
+.ui-resizable-s {
+    cursor: row-resize;
+    height: 6px;
+    width: 100%;
+    bottom: 0px;
+    left: 0;
+    background: url(img/gui-pane-resize-handle-horizontal.png) center center no-repeat;
+}
+.ui-resizable-e {
+    cursor: col-resize;
+    width: 6px;
+    right: 0px;
+    top: 0;
+    height: 100%;
+    background: url(img/gui-pane-resize-handle-vertical.png) center center no-repeat;
+}
+.ui-resizable-w {
+    cursor: col-resize;
+    width: 6px;
+    left: 0px;
+    top: 0;
+    height: 100%;
+    background: url(img/gui-pane-resize-handle-vertical.png) center center no-repeat;
+}
+
+/* GUI PANE - Handlers */
+.gui-pane .ui-resizable-n {
+    top: -8px;
+    background: url(img/gui-pane-resize-handle-horizontal.png) center center no-repeat;
+}
+.gui-pane .ui-resizable-s {
+    bottom: -8px;
+    background: url(img/gui-pane-resize-handle-horizontal.png) center center no-repeat;
+}
+.gui-pane .ui-resizable-e {
+    right: -8px;
+    background: url(img/gui-pane-resize-handle-vertical.png) center center no-repeat;
+}
+.gui-pane .ui-resizable-w {
+    left: -8px;
+    background: url(img/gui-pane-resize-handle-vertical.png) center center no-repeat;
+}
+
+/* GUI WINDOW - Handlers */
+.gui-window .ui-resizable-n {
+	background-image: none;
+}
+.gui-window .ui-resizable-s {
+    background-image: none;
+}
+.gui-window .ui-resizable-e {
+    background-image: none;
+}
+.gui-window .ui-resizable-w {
+    background-image: none;
+}
+
+
+.ui-resizable-se {
+    cursor: se-resize;
+    width: 12px;
+    height: 12px;
+    right: 1px;
+    bottom: 1px;
+}
+.ui-resizable-sw {
+    cursor: sw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    bottom: -5px;
+}
+.ui-resizable-nw {
+    cursor: nw-resize;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    top: -5px;
+}
+.ui-resizable-ne {
+    cursor: ne-resize;
+    width: 9px;
+    height: 9px;
+    right: -5px;
+    top: -5px;
+}
+
+.ui-resizable-helper {
+	overflow: visible !important;
+}
+
+.ui-resizable-helper .pane-east .ui-resizable-handle,
+.ui-resizable-helper .pane-west .ui-resizable-handle {
+	background-image: none;
+    background-color: #77858E;
+}
+
+.ui-resizable-helper .pane-north .ui-resizable-handle,
+.ui-resizable-helper .pane-south .ui-resizable-handle {
+	background-image: none;
+    background-color: #77858E;
+}
+
+
+.ui-datepicker {
+    margin-top: 3px;
+    width: 17em;
+    padding: 10px 15px 10px 10px;
+    display: none;
+    background-color: #33393E;
+
+    border: 1px solid #212529;
+    border-top-color: #1E2326;
+
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1), inset 0px 1px 0px 0px #373c40;
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1), inset 0px 1px 0px 0px #373c40;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.1), inset 0px 1px 0px 0px #373c40;
+}
+.ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: .2em 0px;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 2px;
+    width: 1.8em;
+    height: 1.8em;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+    top: 1px;
+}
+.ui-datepicker .ui-datepicker-prev {
+    left: 2px;
+}
+.ui-datepicker .ui-datepicker-next {
+    right: 2px;
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+    left: 1px;
+}
+.ui-datepicker .ui-datepicker-next-hover {
+    right: 1px;
+}
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center;
+}
+.ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 0;
+}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+    width: 45%;
+}
+.ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em;
+}
+.ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+}
+.ui-datepicker td {
+    border: 0;
+    padding: 1px;
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none;
+    color: #bac6d0;
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+    background-image: none;
+    margin: .7em 0 0 0;
+    padding: 0 .2em;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+    float: right;
+    margin: .5em .2em .4em;
+    cursor: pointer;
+    padding: .2em .6em .3em .6em;
+    width: auto;
+    overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    float: left;
+}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi {
+    width: auto;
+}
+.ui-datepicker-multi .ui-datepicker-group {
+    float: left;
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+    width: 95%;
+    margin: 0 auto .4em;
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+    width: 50%;
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+    width: 33.3%;
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+    width: 25%;
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+    border-left-width: 0;
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+    clear: left;
+}
+.ui-datepicker-row-break {
+    clear: both;
+    width: 100%;
+    font-size: 0;
+}
+
+/* RTL support */
+.ui-datepicker-rtl {
+    direction: rtl;
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+    right: 2px;
+    left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+    left: 2px;
+    right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+    right: 1px;
+    left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+    left: 1px;
+    right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+    clear: right;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+    float: left;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.ui-datepicker-rtl .ui-datepicker-group {
+    float: right;
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+
+
+
