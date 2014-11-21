@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/zupa/zupa-ui/issues"
   },
-  "homepage": "http://www.zupa.io"
+  "homepage": "http://www.zupa.io",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0"
+  }
 }
