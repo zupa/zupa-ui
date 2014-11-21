@@ -1,7 +1,7 @@
 {
   "name": "zupa-ui",
   "version": "0.0.0",
-  "description": "JavaScript UI Components,
+  "description": "JavaScript UI Components",
   "main": "index.js",
   "directories": {
     "example": "examples"
