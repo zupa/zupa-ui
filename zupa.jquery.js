@@ -265,6 +265,12 @@
         var $northPane = $element.find("> .pane-north").addClass("gui-pane");
         var $southPane = $element.find("> .pane-south").addClass("gui-pane");
 
+
+        plugin.updateSettings = function(newSettings){
+            plugin.settings = $.extend(true, {}, plugin.settings, newSettings);
+            plugin.redraw();
+        };
+
         /**
          * INITIALIZE
          */

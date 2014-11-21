@@ -27,8 +27,10 @@
     <script type="text/javascript" src="../required/scrollbar/jquery.mousewheel.min.js"></script>
     <script type="text/javascript" src="../required/scrollbar/jquery.mCustomScrollbar.min.js"></script>
 
+
     <!-- Zupa -->
     <link rel="stylesheet" type="text/css" href="../themes/dark/zupa.css">
+    <script type="text/javascript" src="../zupa.jquery.js"></script>
     <script type="text/javascript" src="../zupa.angular.js"></script>
 
     <!-- JavaScript -->
@@ -40,34 +42,67 @@
 
 
 <!-- MAIN PANE -->
-<zupa-panes>
+<!--<zp-panes padding="20" spacing="8">-->
+
+    <!--&lt;!&ndash; WEST &ndash;&gt;-->
+    <!--<zp-pane direction="west" width="100">-->
+        <!--WEST {{hello}}-->
+    <!--</zp-pane>-->
+
+    <!--&lt;!&ndash; NORTH &ndash;&gt;-->
+    <!--<zp-pane direction="north" height="100">-->
+        <!--NORTH-->
+    <!--</zp-pane>-->
+
+    <!--&lt;!&ndash; CENTER &ndash;&gt;-->
+    <!--<zp-pane direction="center">-->
+        <!--CENTER-->
+    <!--</zp-pane>-->
+
+    <!--&lt;!&ndash; SOUTH &ndash;&gt;-->
+    <!--<zp-pane direction="south" height="100">-->
+        <!--SOUTH-->
+    <!--</zp-pane>-->
+
+    <!--&lt;!&ndash; EAST &ndash;&gt;-->
+    <!--<zp-pane direction="east" width="100">-->
+        <!--EAST-->
+    <!--</zp-pane>-->
+
+<!--</zp-panes>-->
+
+
+<!-- MAIN PANE -->
+<div zupa-panes settings="paneSettings">
 
     <!-- WEST -->
-    <zupa-pane orientation="west">
+    <div class="pane-west">
         WEST {{hello}}
-    </zupa-pane>
+    </div>
 
     <!-- NORTH -->
-    <zupa-pane orientation="north">
-        NORTH
-    </zupa-pane>
+    <div class="pane-north">
+        NORTH<br />
+        <input type="text" ng-model="paneSettings.pane.north.height" />
+    </div>
 
     <!-- CENTER -->
-    <zupa-pane orientation="center">
+    <div class="pane-center">
         CENTER
-    </zupa-pane>
+    </div>
 
     <!-- SOUTH -->
-    <zupa-pane orientation="south">
+    <div class="pane-south">
         SOUTH
-    </zupa-pane>
+    </div>
 
     <!-- EAST -->
-    <zupa-pane orientation="east">
+    <div class="pane-east">
         EAST
-    </zupa-pane>
+    </div>
 
-</zupa-panes>
+</div>
+
 
 </body>
 
