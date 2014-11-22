@@ -1,4 +1,4 @@
-/*! zupa-ui 0.1.0 2014-11-21 */
+/*! zupa-ui 0.1.0 2014-11-22 */
 
 !(function ($) {
 
@@ -8,6 +8,7 @@ $.zupaAccordion = function(element, options) {
         active: 0,
         panes: null
     };
+
 
     var plugin = this;
     plugin.settings = {};
@@ -818,7 +819,7 @@ $.fn.zupaMainMenu = function(options) {
     });
 };
 
-jQuery.event.special.dblclick = {
+$.event.special.dblclick = {
     setup: function(data, namespaces) {
         var agent = navigator.userAgent.toLowerCase();
         if (agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0 || agent.indexOf('ipod') >= 0) {
@@ -1872,15 +1873,23 @@ $.zupaTable = function(element, options) {
             params[plugin.settings.path.sortdir] = plugin.settings.sortDirection;
         }
 
-
-        //Make request
-        $.ajax({
+        //Ajax options
+        var ajaxOptions = {
             url: plugin.settings.url,
             type: "GET",
             dataType: "json",
             async: true,
             data: params
-        }).then(loadPageSuccess, loadPageFailure);
+        }
+
+        //JSONP
+        if(plugin.settings.jsonp != null && plugin.settings.jsonp != ""){
+            ajaxOptions.dataType = "jsonp";
+            ajaxOptions.jsonp = plugin.settings.jsonp;
+        }
+
+        //Make request
+        $.ajax(ajaxOptions).then(loadPageSuccess, loadPageFailure);
     };
 
     // Load page: SUCCESS

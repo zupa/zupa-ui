@@ -17,6 +17,7 @@ $.zupaAccordion = function(element, options) {
         panes: null
     };
 
+
     var plugin = this;
     plugin.settings = {};
 

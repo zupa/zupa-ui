@@ -1,0 +1,56 @@
+html { height: 100%; }
+
+body {
+    min-height: 100%;
+    height: 100%;
+    min-width: 100%;
+    padding: 0px;
+    margin: 0px;
+    color: #E3EAEF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    overflow: hidden;
+    background: #353b3f;
+}
+
+/* =================== STYLES =================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin: 0px 0px 20px 0px;
+}
+
+h1 { font-size: 28px; color: #E3EAEF }
+h2 { font-size: 24px; color: #E3EAEF }
+h3 { font-size: 20px; color: #E3EAEF }
+h4 { font-size: 16px; color: #E3EAEF }
+h5 { font-size: 12px; color: #E3EAEF }
+h6 { font-size: 10px; color: #E3EAEF }
+
+p {}
+
+
+
+/* =================== TEXT PANE =================== */
+.gui-text-pane {
+    display: block;
+    padding: 10px;
+    color: #9AA2A8;
+}
+
+
+
+@import 'buttons';
+@import 'form';
+@import 'icons';
+@import 'accordion';
+@import 'button-menu';
+@import 'child';
+@import 'loader';
+@import 'main-menu';
+@import 'pane';
+@import 'table';
+@import 'tabs';
+@import 'thumb';
+@import 'window';
+@import 'override';

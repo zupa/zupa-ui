@@ -1,0 +1,163 @@
+
+/* =================== WINDOW =================== */
+.gui-window {
+  display: block;
+  position: absolute;
+  background-color: #858F99;
+  padding: 28px 8px 8px 6px;
+  border: 1px solid #212528;
+
+  background: #3a4146; /* Old browsers */
+  background: -moz-linear-gradient(top,  #3a4146 0%, #4a5359 50%, #353b3f 51%, #424a50 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3a4146), color-stop(50%,#4a5359), color-stop(51%,#353b3f), color-stop(100%,#424a50)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #3a4146 0%,#4a5359 50%,#353b3f 51%,#424a50 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a4146', endColorstr='#424a50',GradientType=0 ); /* IE6-9 */
+
+
+  -moz-box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+  -webkit-box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+  -o-box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+  box-shadow: 0px 1px 10px rgba(0,0,0,.6);
+}
+
+.gui-window-helper {
+  display: block;
+  border: 1px dashed #858f99;
+}
+
+.gui-window .frame {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #1f2325;
+  background-color: #2a2f33;
+  overflow: hidden;
+
+  -webkit-box-shadow: 0px 1px 0px 0px #5f6569;
+  -moz-box-shadow: 0px 1px 0px 0px #5f6569;
+  box-shadow: 0px 1px 0px 0px #5f6569;
+}
+
+.gui-window .frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background-color: #2a2f33;
+  overflow: hidden;
+}
+
+.gui-window .titlebar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 28px;
+
+  background: #3a4146; /* Old browsers */
+  background: -moz-linear-gradient(top,  #475158 0%, #3a4146 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#475158), color-stop(100%,#3a4146)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #475158 0%,#3a4146 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #475158 0%,#3a4146 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #475158 0%,#3a4146 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #475158 0%,#3a4146 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#475158', endColorstr='#3a4146',GradientType=0 ); /* IE6-9 */
+
+  -webkit-box-shadow: inset 0px 1px 0px 0px #73797e;
+  -moz-box-shadow: inset 0px 1px 0px 0px #73797e;
+  box-shadow: inset 0px 1px 0px 0px #73797e;
+
+}
+
+.gui-window .titlebar .icon {
+  width: 16px;
+  height: 16px;
+  margin: 6px 0px 6px 5px;
+}
+
+.gui-window .titlebar .title {
+  display: inline-block;
+  margin-left: 10px;
+  line-height: 27px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  color: #f1f1f1;
+}
+
+.gui-window .titlebuttons {
+  position: absolute;
+  top: 0px;
+  right: 6px;
+  height: 28px;
+  z-index: 1;
+}
+
+.gui-window .titlebuttons > div {
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin: 4px 0px 3px 0px;
+  cursor: pointer;
+  background-image: url(img/gui-window-btns.png);
+  z-index: 2;
+}
+
+.gui-window .titlebuttons > div:nth-child(2) {
+  margin: 4px 1px 3px 1px;
+}
+
+.gui-window .titlebuttons .minimize-btn {
+  background-position: 0px 0px;
+}
+
+.gui-window .titlebuttons .minimize-btn:hover {
+  background-position: 0px -21px;
+}
+
+.gui-window .titlebuttons .minimize-btn:active {
+  background-position: 0px -42px;
+}
+
+.gui-window .titlebuttons .maximize-btn {
+  background-position: -22px 0px;
+}
+
+.gui-window .titlebuttons .maximize-btn:hover {
+  background-position: -22px -21px;
+}
+
+.gui-window .titlebuttons .maximize-btn:active {
+  background-position: -22px -42px;
+}
+
+.gui-window .titlebuttons .close-btn {
+  background-position: -44px 0px;
+}
+
+.gui-window .titlebuttons .close-btn:hover {
+  background-position: -44px -21px;
+}
+
+.gui-window .titlebuttons .close-btn:active {
+  background-position: -44px -42px;
+}
+
+/* Maximized */
+.gui-window.maximized {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0px;
+}
+
+/* Dialog */
+.gui-window .dialog-message {
+  text-align: center;
+  margin: 25px 40px 0px 40px;
+  height: 55px;
+}
+
+.gui-window .dialog-buttons {
+  text-align: center;
+}

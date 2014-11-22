@@ -1,0 +1,55 @@
+
+/* =================== MAIN MENU =================== */
+.gui-main-menu {
+  float: right;
+  margin-right: 20px;
+}
+
+.gui-main-menu .gui-main-menu-buttons {
+  list-style: none;
+}
+
+.gui-main-menu .gui-main-menu-buttons li {
+  float: left;
+  padding: 15px 25px;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 10px;
+  color: #7b848b;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.gui-main-menu .gui-main-menu-buttons li:hover {
+  background-color: #1f2325;
+  color: #E3EAEF;
+}
+
+.gui-main-menu .gui-main-menu-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  position: absolute;
+  top: 60px;
+  background-color: #32383c;
+  border-top: 1px solid #595f63;
+
+  -webkit-box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.5);
+  box-shadow: 1px 1px 12px 0px rgba(0,0,0,0.5);
+}
+
+.gui-main-menu .gui-main-menu-submenu .gui-main-menu-submenu-button {
+  padding: 8px 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  min-width: 100px;
+  color: #c5d1da;
+}
+
+.gui-main-menu .gui-main-menu-submenu .gui-main-menu-submenu-button:hover {
+  background-color: #262b2e;
+  cursor: pointer;
+}

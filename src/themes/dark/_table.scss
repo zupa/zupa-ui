@@ -1,0 +1,261 @@
+
+/* =================== TABLE =================== */
+
+.gui-table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Header */
+.gui-table-header {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 26px;
+  width: 100%;
+  background: url(img/gui-table-bkg.png) 0 0 repeat-x;
+  overflow: hidden;
+}
+
+.gui-table-header .holder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: auto;
+}
+
+.gui-table-header .holder .column {
+  position: absolute;
+  overflow: hidden;
+  border: none;
+  border-right: 1px solid #3d4246;
+  border-left: 1px solid #303539;
+  height: 26px;
+}
+
+.gui-table-header .holder .column:hover {
+  background: url(img/gui-table-bkg.png) 0 -30px repeat-x;
+}
+
+.gui-table-header .holder .column:first-child {
+  border-left: none;
+}
+
+.gui-table-header .holder .column:last-child {
+  border-right: none;
+}
+
+.gui-table-header .column .inner {
+  display: inline-block;
+  line-height: 16px;
+  margin: 5px 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.gui-table-header .column .resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+}
+
+.gui-table-header .column .resize-handle:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.gui-table-header .column.column-sort-asc, .gui-table-header .column.column-sort-desc {
+  background: url(img/gui-table-bkg.png) 0 -30px repeat-x;
+}
+
+.gui-table-header .column.column-sort-asc .column-menu-button {
+  display: block;
+  background-position: 0px -60px;
+}
+
+.gui-table-header .column.column-sort-desc .column-menu-button {
+  display: block;
+  background-position: 0px -80px;
+}
+
+/* Column menu */
+.gui-table .column-menu {
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  padding: 5px;
+  z-index: 1;
+  width: 140px;
+
+  background-color: #394045;
+  border: 1px solid #212528;
+
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px #5b6165;
+
+}
+
+.gui-table .column-menu .column-menu-arrow {
+  position: absolute;
+  top: -8px;
+  left: 3px;
+  height: 9px;
+  width: 11px;
+  background: url(img/gui-table-column-menu-arrow.png) 0 0 no-repeat;
+}
+
+.gui-table .column-menu.menu-reversed .column-menu-arrow {
+  left: auto;
+  right: 3px;
+}
+
+.gui-table .column-menu .gui-btn {
+  margin-bottom: 3px;
+}
+
+.gui-table .column-menu .gui-btn:last-child {
+  margin-bottom: 0px;
+}
+
+/* Column button */
+.gui-table-header .column .column-menu-button {
+  display: none;
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background: url(img/gui-table-column-btn.png) 0 0 no-repeat;
+}
+
+.gui-table-header .column .column-menu-button:hover {
+  background-position: 0 -20px;
+}
+
+.gui-table-header .column .column-menu-button:active {
+  background-position: 0 -40px;
+}
+
+.gui-table-header .column:hover .column-menu-button {
+  display: block;
+}
+
+.gui-table-header .column .column-menu-button.selected {
+  display: block;
+  background-position: 0 -20px;
+}
+
+
+/* Content */
+.gui-table-content {
+  display: block;
+  position: absolute;
+  top: 26px;
+  left: 0;
+  overflow: auto;
+  width: 100%;
+}
+
+.gui-table-content table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.gui-table-content table tr {
+  background-color: #2a2f33;
+  height: 24px;
+}
+
+.gui-table-content table td {
+  display: table-cell;
+  border-top: 1px solid #3c4044;
+  border-bottom: 1px solid #24282b;
+  border-left: 1px solid #25292d;
+  border-right: 1px solid #2e3337;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-size: 11px;
+  height: 24px;
+  color: #818588;
+}
+
+.gui-table-content table td:first-child {
+  border-left: none;
+}
+
+.gui-table-content table td:last-child {
+  border-right: none;
+}
+
+.gui-table-content td .inner {
+  display: inline-block;
+  margin: 4px 6px;
+  line-height: 16px;
+}
+
+.gui-table-content table td.identifier {
+  border-right: 1px solid #d0d0d0;
+  border-bottom: 1px solid #e9e9e9;
+  background-color: #f6f6f6;
+  text-align: right;
+}
+
+.gui-table-content table tr:hover td {
+  background-color: #23282b;
+  border-top: 1px solid #23282b;
+  border-left-color: #1e2225;
+  border-right-color: #272c30;
+  cursor: pointer;
+  color: #E3EAEF;
+}
+
+.gui-table-content table tr:active td {
+  background-color: #1e2124;
+  border-top: 1px solid #1d2022;
+  border-bottom: 1px solid #1c1f22;
+  border-left-color: #17191c;
+  border-right-color: #212428;
+  cursor: pointer;
+  color: #E3EAEF;
+}
+
+.gui-table-content .column-marker {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+}
+
+/*Footer */
+.gui-table-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 40px;
+  display: block;
+  overflow: hidden;
+  background: url(img/gui-table-bkg.png) 0 -60px repeat-x;
+}
+
+.gui-table-footer .message-box {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  color: #bfc4c8;
+}

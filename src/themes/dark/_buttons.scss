@@ -1,0 +1,64 @@
+/* =================== BUTTONS =================== */
+
+.gui-btn {
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  background: url(img/gui-button.png) 0 0 repeat-x;
+  padding: 6px 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  color: #B1B7BC;
+  text-decoration: none;
+  border: none;
+  border-right: 1px solid #202527;
+  border-left: 1px solid #202527;
+  border-bottom: 1px solid #202527;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.gui-btn:hover {
+  background-position: 0px -30px;
+  color: #bac6d0;
+}
+
+.gui-btn:active {
+  background-position: 0px -60px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+button.gui-btn {
+  height: 30px;
+}
+
+.gui-btn.btn-small {
+  height: 24px;
+  line-height: 24px;
+  padding: 0px 10px;
+}
+
+.gui-btn.btn-bold {
+  font-weight: 700;
+}
+
+.gui-btn.btn-fill {
+  text-align: left;
+  display: block;
+}
+
+/* Font Awesome - icon */
+.gui-btn .fa {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+/* Icon */
+.gui-btn i.icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}

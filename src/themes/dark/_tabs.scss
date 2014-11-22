@@ -1,0 +1,244 @@
+
+/* =================== TABS =================== */
+
+.gui-tabs .tab-container {
+  width: 100%;
+  position: absolute;
+  top: 34px;
+  left: 0;
+  display:  block;
+  overflow: hidden;
+}
+
+.gui-tabs .tab-container > div {
+  position: absolute;
+  display:  block;
+  width: 100%;
+  height: 100%;
+}
+
+.gui-tabs .tab-pane {
+  height: 34px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(img/gui-tabs-bkg.png) 0 0 repeat-x;
+  overflow: hidden;
+}
+
+.gui-tabs .tab-pane .tab-pane-container {
+  float: left;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 34px;
+}
+
+.gui-tabs .gui-tab {
+  position: relative;
+  height: 33px;
+  float: left;
+  background: url(img/gui-tabs-bkg.png) 0 -34px repeat-x;
+}
+
+.gui-tabs .gui-tab .tab-center {
+  float: left;
+  display: inline-block;
+  height: 33px;
+  line-height: 31px;
+  padding: 0 10px;
+  color: #61676b;
+}
+
+.gui-tabs .gui-tab .tab-left, .gui-tabs .gui-tab .tab-right {
+  float: left;
+  display: inline-block;
+  width: 10px;
+  height: 33px;
+}
+
+.gui-tabs .gui-tab .tab-left {
+  background: url(img/gui-tabs-borders.png) left 0 no-repeat;
+}
+
+.gui-tabs .gui-tab .tab-right {
+  background: url(img/gui-tabs-borders.png) right -33px no-repeat;
+}
+
+.gui-tabs .gui-tab:first-child .tab-left {
+  background: none;
+  width: 9px;
+}
+
+/* Hover */
+.gui-tabs .gui-tab:hover {
+  background: url(img/gui-tabs-bkg.png) 0 -67px repeat-x;
+  cursor: pointer;
+}
+
+.gui-tabs .gui-tab:hover .tab-center {
+  color: #ABAFB2;
+}
+
+.gui-tabs .gui-tab:hover .tab-right {
+  background: none;
+}
+
+/* Active */
+.gui-tabs .gui-tab.active {
+  background: url(img/gui-tabs-active.png) 0 0 repeat-x;
+  height: 34px;
+}
+
+.gui-tabs .gui-tab.active .tab-center {
+  color: #E3EAEF;
+}
+
+.gui-tabs .gui-tab.active .tab-left {
+  background: url(img/gui-tabs-active.png) left -34px no-repeat;
+  height: 34px;
+}
+
+.gui-tabs .gui-tab.active .tab-right {
+  background: url(img/gui-tabs-active.png) right -34px no-repeat;
+  height: 34px;
+}
+
+.gui-tabs .gui-tab:first-child.active .tab-left {
+  background: none;
+  width: 9px;
+}
+
+.gui-tabs .gui-tab.tab-toright .tab-left {
+  background: url(img/gui-tabs-active-shadow.png) left 0px no-repeat;
+}
+
+.gui-tabs .gui-tab.tab-toleft .tab-right {
+  background: url(img/gui-tabs-active-shadow.png) right -33px no-repeat;
+}
+
+/* Close button */
+.gui-tabs .tab-close-btn {
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  background: url(img/gui-tabs-close-btn.png) 0 0 no-repeat;
+}
+
+.gui-tabs .tab-close-btn:hover {
+  background-position: 0px -14px;
+}
+
+.gui-tabs .tab-close-btn:active {
+  background-position: 0px -28px;
+}
+
+/* Expand button/menu */
+.gui-tabs .tab-pane .tab-pane-expand {
+  position: absolute;
+  top: 0px;
+  right: -1px;
+  width: 29px;
+  height: 34px;
+  z-index: 1;
+  background: url(img/gui-tabs-expand-btn.png) 0 0 no-repeat;
+}
+
+.gui-tabs .tab-pane .tab-pane-expand:hover {
+  background-position: 0px -34px;
+  cursor: pointer;
+}
+
+.gui-tabs .tab-pane .tab-pane-expand:active {
+  background-position: 0px -68px;
+  cursor: pointer;
+}
+
+.gui-tabs .tab-pane .tab-pane-expand.selected {
+  background-position: 0px -102px;
+  cursor: pointer;
+}
+
+.gui-tabs .tab-pane-expand-menu {
+  display: inline-block;
+  position: absolute;
+  top: 32px;
+  right: 0px;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  z-index: 1;
+
+  background-color: #33393d;
+  border: 1px solid #222629;
+  border-right: none;
+
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+  -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+  box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.2), inset 0px 1px 0px 0px #474c51;
+
+}
+
+.gui-tabs .tab-pane-expand-menu .top-border {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 1px;
+  width: 19px;
+  background-color: #33393d;
+}
+
+.gui-tabs .tab-pane-expand-menu li {
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  padding: 0px 15px;
+  text-align: left;
+  min-width: 100px;
+  color: #61676b;
+
+  background-color: #262a2e;
+  border-left: 1px solid #222629;
+  border-right: 1px solid #222629;
+
+  border-bottom: 1px solid #1f2225;
+
+  -webkit-box-shadow: inset 0px 1px 0px 0px #2b2f31;
+  -moz-box-shadow: inset 0px 1px 0px 0px #2b2f31;
+  box-shadow: inset 0px 1px 0px 0px #2b2f31;
+}
+
+.gui-tabs .tab-pane-expand-menu li:nth-child(2) {
+  border-top: 1px solid #222629;
+}
+
+.gui-tabs .tab-pane-expand-menu li:last-child {
+  border-bottom: 1px solid #222629;
+}
+
+.gui-tabs .tab-pane-expand-menu li:hover {
+  background-color: #222629;
+  color: #ABAFB2;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #212427;
+  -moz-box-shadow: inset 0px 1px 0px 0px #212427;
+  box-shadow: inset 0px 1px 0px 0px #212427;
+}
+
+.gui-tabs .tab-pane-expand-menu li.active {
+  background: url(img/gui-tabs-active.png) 0 0px repeat-x;
+  color: #E3EAEF;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #474c51;
+  -moz-box-shadow: inset 0px 1px 0px 0px #474c51;
+  box-shadow: inset 0px 1px 0px 0px #474c51;
+}
+
+.gui-tabs .tab-pane-expand-menu li.tab-closeable {
+  padding-right: 25px;
+}

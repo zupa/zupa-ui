@@ -1,7 +1,7 @@
 /**
  * Override 'dblclick' event to support doubbletap on touch devices
  */
-jQuery.event.special.dblclick = {
+$.event.special.dblclick = {
     setup: function(data, namespaces) {
         var agent = navigator.userAgent.toLowerCase();
         if (agent.indexOf('iphone') >= 0 || agent.indexOf('ipad') >= 0 || agent.indexOf('ipod') >= 0) {

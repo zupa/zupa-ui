@@ -229,15 +229,23 @@ $.zupaTable = function(element, options) {
             params[plugin.settings.path.sortdir] = plugin.settings.sortDirection;
         }
 
-
-        //Make request
-        $.ajax({
+        //Ajax options
+        var ajaxOptions = {
             url: plugin.settings.url,
             type: "GET",
             dataType: "json",
             async: true,
             data: params
-        }).then(loadPageSuccess, loadPageFailure);
+        }
+
+        //JSONP
+        if(plugin.settings.jsonp != null && plugin.settings.jsonp != ""){
+            ajaxOptions.dataType = "jsonp";
+            ajaxOptions.jsonp = plugin.settings.jsonp;
+        }
+
+        //Make request
+        $.ajax(ajaxOptions).then(loadPageSuccess, loadPageFailure);
     };
 
     // Load page: SUCCESS

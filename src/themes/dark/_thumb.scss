@@ -1,0 +1,27 @@
+
+/* =================== THUMBNAIL =================== */
+.gui-thumb {
+  position: relative;
+  display: inline-block;
+  background: #262a2e;
+  -moz-box-shadow:    inset 0px 0px 2px #1f2225;
+  -webkit-box-shadow: inset 0px 0px 2px #1f2225;
+  box-shadow:         inset 0px 0px 2px #1f2225;
+  border-top: 1px solid #1c2023;
+  border-right: 1px solid #212529;
+  border-left: 1px solid #212529;
+  border-bottom: 1px solid #373c40;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.gui-thumb .thumb-image {
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.gui-thumb .thumb-menu {
+  display: none;
+  position: absolute;
+  background-color: red;
+}

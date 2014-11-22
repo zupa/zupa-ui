@@ -1,0 +1,53 @@
+
+/* =================== ACCORDION =================== */
+
+.gui-accordion {
+  display: block;
+  position: relative;
+  overflow: hidden !important;
+  width: 100%;
+  height: 100%;
+}
+
+.gui-accordion .accord {
+
+}
+
+.gui-accordion .titlebutton {
+  display: block;
+  padding: 0 6px;
+  height: 25px;
+  line-height: 26px;
+  color: #777b7f;
+  background: url(img/gui-accordion-bkg.png) 0 0 repeat-x;
+  cursor: pointer;
+  border-bottom: 1px solid #24282b;
+}
+
+.gui-accordion .titlebutton:hover {
+  color: #BFC5C9;
+}
+
+.gui-accordion .titlebutton:active {
+  background-position: 0 -50px;
+}
+
+.gui-accordion .accord.active .titlebutton, .gui-accordion .accord.active .titlebutton:hover, .gui-accordion .accord.active .titlebutton:active {
+  background-position: 0 -25px;
+  cursor: default;
+  border-bottom: 1px solid #33393d;
+  color: #E3EAEF;
+}
+
+
+.gui-accordion .accord.active {
+  background-color: #33393d;
+}
+
+.gui-accordion .contentpane {
+  position: relative;
+  display: none;
+  margin: 0 4px 5px 4px;
+  border: 1px solid #212528;
+  background-color: #2A2F33;
+}
