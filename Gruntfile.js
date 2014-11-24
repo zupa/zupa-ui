@@ -79,6 +79,17 @@ module.exports = function(grunt) {
                         filter: 'isFile'
                     }
                 ]
+            },
+            wrapper: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'src',
+                        src: ['zupa-ui.angular.js'],
+                        dest: 'dist',
+                        filter: 'isFile'
+                    }
+                ]
             }
         },
 
@@ -90,11 +101,15 @@ module.exports = function(grunt) {
             },
             js: {
                 files: 'src/ui/*.js',
-                tasks: ['clean:js', 'concat', 'uglify']
+                tasks: ['clean:js', 'concat', 'uglify', 'copy:wrapper']
             },
             img: {
                 files: 'src/themes/*/img/**/*.*',
                 tasks: ['clean:img', 'copy:img']
+            },
+            wrapper: {
+                files: 'src/zupa-ui.angular.js',
+                tasks: ['copy:wrapper']
             }
         }
     });

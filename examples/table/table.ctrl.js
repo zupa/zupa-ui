@@ -1,26 +1,8 @@
-$(document).ready(function(){
+app.controller('TableCtrl', function($scope){
 
-    //MAIN PANE
-    $("#mainPane").zupaPane({
-        pane: {
-            center: {},
-            east: {
-                enabled: true,
-                width: "20%",
-                resizable: true
-            },
-            west: {
-                enabled: true,
-                width: "20%",
-                resizable: true
-            }
-        },
-        padding: 8,
-        spacing: 8
-    });
+    $scope.tablePaneSettings = {};
 
-
-    $("#testTable").zupaTable({
+    $scope.tableSettings = {
         url: "http://hotell.difi.no/api/jsonp/brreg/enhetsregisteret",
         jsonp: "callback",
         path: {
@@ -42,22 +24,21 @@ $(document).ready(function(){
             resizable: true,
             width: "100px"
         },
-            {
-                name: "Navn",
-                col: 'navn',
-                searchable: true,
-                sortable: true,
-                resizable: true,
-                width: "450px"
-            },
-            {
-                name: "Adresse",
-                col: "forretningsadr",
-                searchable: true,
-                sortable: true,
-                resizable: true
-            }]
-    });
-
+        {
+            name: "Navn",
+            col: 'navn',
+            searchable: true,
+            sortable: true,
+            resizable: true,
+            width: "450px"
+        },
+        {
+            name: "Adresse",
+            col: "forretningsadr",
+            searchable: true,
+            sortable: true,
+            resizable: true
+        }]
+    };
 
 });

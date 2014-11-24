@@ -1,4 +1,4 @@
-/*! zupa-ui 0.1.0 2014-11-22 */
+/*! zupa-ui 0.1.0 2014-11-24 */
 
 !(function ($) {
 
@@ -778,6 +778,13 @@ $.zupaMainMenu = function(element, options) {
             if(button.menu != null){
                 drawSubmenu($buttonElement, button.menu);
             }
+
+            if(button.link != null){
+                $buttonElement.click(function(){
+                    window.location = button.link;
+                });
+            }
+
         });
     };
 

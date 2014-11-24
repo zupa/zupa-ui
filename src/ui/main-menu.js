@@ -66,6 +66,13 @@ $.zupaMainMenu = function(element, options) {
             if(button.menu != null){
                 drawSubmenu($buttonElement, button.menu);
             }
+
+            if(button.link != null){
+                $buttonElement.click(function(){
+                    window.location = button.link;
+                });
+            }
+
         });
     };
 

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
 
 <head>
     <title>Zupa jQuery - Examples</title>
@@ -13,10 +13,11 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
     <!-- Font Awesome -->
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
 
     <!-- Angular JS -->
     <script type="text/javascript" src="../lib/angular/angular.js"></script>
+    <script type="text/javascript" src="../lib/angular-route/angular-route.js"></script>
 
     <!-- jQuery -->
     <script type="text/javascript" src="../lib/jquery/dist/jquery.js"></script>
@@ -30,201 +31,34 @@
     <!-- Zupa UI -->
     <link rel="stylesheet" type="text/css" href="../dist/themes/dark/zupa-ui-dark.css">
     <script type="text/javascript" src="../dist/zupa-ui.jquery.js"></script>
+    <script type="text/javascript" src="../dist/zupa-ui.angular.js"></script>
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="init.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="table/table.ctrl.js"></script>
 
 </head>
-
-<body>
-
-
-<!-- MAIN PANE -->
-<div id="mainPane">
-
-    <!-- WEST -->
-    <div class="pane-west">
-        <div id="testTabs">
-            <div id="tab1">
-
-                <form class="gui-form">
-
-                    <!-- Title -->
-                    <div class="form-title">
-                        <div class="title">Kantbeskyttere</div>
-                        <div class="subtitle">PRODUKT</div>
-                    </div>
-
-                    <!-- Input -->
-                    <div class="form-group">
-                        <div class="label">Name:</div>
-                        <div class="field">
-                            <input type="text" />
-                        </div>
-                    </div>
-
-                    <!-- Textarea -->
-                    <div class="form-group">
-                        <div class="label">Description:</div>
-                        <div class="field">
-                            <textarea rows="5"></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Radio Buttons -->
-                    <div class="form-group">
-                        <div class="label">Description:</div>
-                        <div class="field">
-                            <input id="apples" type="radio" name="fruits" checked />
-                            <label for="apples">Apples</label>
-
-                            <input id="oranges" type="radio" name="fruits" />
-                            <label for="oranges">Oranges</label>
-
-                            <input id="bananas" type="radio" name="fruits" />
-                            <label for="bananas">Bananas</label>
-                        </div>
-                    </div>
-
-                    <!-- Select -->
-                    <div class="form-group">
-                        <div class="label">Country:</div>
-                        <div class="field">
-                            <div class="gui-select">
-                                <div class="arrow"></div>
-                                <select>
-                                    <option value="1">Norway</option>
-                                    <option value="2">Sweden</option>
-                                    <option value="3">Denmark</option>
-                                    <option value="4">Finland</option>
-                                    <option value="5">Iceland</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Input: Disabled -->
-                    <div class="form-group">
-                        <div class="label">Disabled:</div>
-                        <div class="field">
-                            <input type="text" value="This text is disabled" disabled/>
-                        </div>
-                    </div>
-
-                    <!-- Divider -->
-                    <div class="form-divider"></div>
-
-                    <!-- Checkbox -->
-                    <div class="form-group">
-                        <div class="label">Activate:</div>
-                        <div class="field">
-                            <div class="gui-checkbox">
-                                <input id="chk1" type="checkbox" />
-                                <label for="chk1"></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Input: Addon -->
-                    <div class="form-group">
-                        <div class="label">Date:</div>
-                        <div class="field">
-                            <div class="input-addon">
-                                <div class="addon"><i class="fa fa-calendar"></i></div>
-                                <input id="calendar-input" class="input-sm" type="text" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Input: Addon Right -->
-                    <div class="form-group">
-                        <div class="label">E-mail:</div>
-                        <div class="field">
-                            <div class="input-addon addon-right">
-                                <div class="addon"><i class="fa fa-envelope"></i></div>
-                                <input class="input-lg" type="text" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Button Row -->
-                    <div class="button-group">
-                        <button class="gui-btn btn-bold">SAVE CHANGES</button>
-                    </div>
+<body ng-controller="AppCtrl">
 
 
+    <!-- MAIN PANE -->
+    <div data-zupa-panes settings="paneSettings">
 
-                </form>
-
-            </div>
-            <div id="testchild"></div>
-            <div id="tab3">Tab 3 content</div>
-            <div id="tab4">Tab 4 content</div>
-            <div id="tab5">Tab 5 content</div>
-            <div id="tab6">Tab 6 content</div>
-            <div id="tab7">Tab 7 content</div>
-
-            <div id="tab8"></div>
+        <!-- NORTH -->
+        <div class="pane-north">
+            <div zupa-main-menu settings="mainMenuSettings"></div>
         </div>
-    </div>
 
-    <!-- NORTH -->
-    <div class="pane-north">
-        <div id="subPane">
-            <div class="pane-center">CENTER</div>
-            <div class="pane-north">NORTH</div>
-            <div class="pane-south">SOUTH</div>
-            <div class="pane-west">WEST</div>
-            <div class="pane-east">EAST</div>
+        <!-- CENTER -->
+        <div class="pane-center">
+
         </div>
-    </div>
-
-    <!-- CENTER -->
-    <div class="pane-center">
-
-        <div id="button-row"></div>
-        <!--<div class="gui-text-pane">-->
-
-            <!--&lt;!&ndash; Bold &ndash;&gt;-->
-            <!--<h3>Bold</h3>-->
-            <!--<strong>This here is some bold text</strong>-->
-
-            <!--&lt;!&ndash; Small &ndash;&gt;-->
-            <!--<h3>Small</h3>-->
-            <!--<small>These here is some small text</small>-->
-
-            <!--&lt;!&ndash; Typograpy &ndash;&gt;-->
-            <!--<h3>Typograpy</h3>-->
-            <!--<h1>This is a heading</h1>-->
-            <!--<h2>This is a heading</h2>-->
-            <!--<h3>This is a heading</h3>-->
-            <!--<h4>This is a heading</h4>-->
-            <!--<h5>This is a heading</h5>-->
-            <!--<h6>This is a heading</h6>-->
-
-            <!--&lt;!&ndash; Paragraph &ndash;&gt;-->
-            <!--<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>-->
-        <!--</div>-->
 
     </div>
 
-    <!-- SOUTH -->
-    <div class="pane-south">
-        <div id="productTable"></div>
-    </div>
 
-    <!-- EAST -->
-    <div class="pane-east">
-        <div id="accordionTest">
-            <div id="pane1">Pane1</div>
-            <div id="pane2">Pane2</div>
-            <div id="pane3">Pane3</div>
-            <div id="pane4">Pane4</div>
-        </div>
-    </div>
-
-</div>
 
 </body>
-
 </html>
