@@ -1,3 +1,4 @@
+@import 'base';
 
 /* =================== FORM =================== */
 
@@ -314,6 +315,7 @@ input[type="radio"]:checked + label {
 }
 
 /* INDENTED */
-.gui-form.indented .button-group {
+.gui-form.form-indent .button-group {
   padding-left: 130px;
 }
+

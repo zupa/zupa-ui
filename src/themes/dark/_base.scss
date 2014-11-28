@@ -1,0 +1,137 @@
+
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+
+// Font
+$font-family: 'Open Sans', sans-serif;
+$font-size: 11px;
+
+// Colors
+$primary-color: #394045;
+$text-color: #D9DDE0;
+
+$link-color: #83BFEA;
+
+$body-background-color: #353b3f;
+$pane-background-color: #2a2f33;
+
+$overlay-element-shadows: 1px 1px 4px 0px rgba(0,0,0,0.3);
+
+$global-contrast: 0%;
+
+
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+
+// Gradient
+@mixin gradient($topColor, $bottomColor, $gradientStart: 0%, $gradientStop: 100%) {
+  background: $topColor;
+  background: -moz-linear-gradient(top,  $topColor $gradientStart, $bottomColor $gradientStop);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop($gradientStart,$topColor), color-stop($gradientStop,$bottomColor));
+  background: -webkit-linear-gradient(top,  $topColor $gradientStart,$bottomColor $gradientStop);
+  background: -o-linear-gradient(top,  $topColor $gradientStart,$bottomColor $gradientStop);
+  background: -ms-linear-gradient(top,  $topColor $gradientStart,$bottomColor $gradientStop);
+  background: linear-gradient(to bottom,  $topColor $gradientStart,$bottomColor $gradientStop);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+}
+
+// Box shadow
+@mixin box-shadow($shadows...) {
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow:    $shadows;
+  box-shadow:         $shadows;
+}
+
+// Text Shaodw
+@mixin text-shadow($shadows...) {
+  text-shadow: $shadows;
+}
+
+@function darker($color, $percent) {
+
+  $newpercent: $percent + $global-contrast;
+
+  @if $newpercent > 100% {
+    $newpercent: 100%;
+  }
+  @else if $newpercent < 0% {
+    $newpercent: 0%;
+  }
+
+  @return darken($color, $newpercent);
+}
+
+@function lighter($color, $percent) {
+
+  $newpercent: $percent + $global-contrast;
+
+  @if $newpercent > 100% {
+    $newpercent: 100%;
+  }
+  @else if $newpercent < 0% {
+    $newpercent: 0%;
+  }
+
+  @return lighten($color, $newpercent);
+}
+
+/* ===================================================================
+   BLENDS
+   =================================================================== */
+
+// Bevel
+$bevel-top-color: lighter($primary-color, 0%);
+$bevel-bottom-color: darker($primary-color, 5%);
+
+@mixin bevel($borderSides: false) {
+  @include gradient($bevel-top-color, $bevel-bottom-color);
+  border-top: 1px solid lighter($bevel-top-color, 10%);
+  border-bottom: 1px solid darker($bevel-bottom-color, 1.5%);
+  color: darker($text-color, 10%);
+
+  @if $borderSides {
+    border-right: 1px solid $bevel-top-color;
+    border-left: 1px solid darker($bevel-bottom-color, 2%);
+  }
+}
+
+@mixin bevel-hover($borderSides: false){
+  @include gradient(lighter($bevel-top-color, 3%), lighter($bevel-bottom-color, 1%));
+  border-top: 1px solid lighter($bevel-top-color, 17%);
+  border-bottom: 1px solid darker($bevel-bottom-color, 2%);
+  cursor: pointer;
+  color: $text-color;
+
+  @if $borderSides {
+    border-right-color: lighter($bevel-top-color, 5%);
+  }
+}
+
+@mixin bevel-expanded($borderSides: false){
+  @include gradient(darker($bevel-top-color, 3.5%), lighter($bevel-bottom-color, 2.5%), 0%, 55%);
+  border-top-color: darker($bevel-top-color, 6%);
+  border-bottom-color: lighter($bevel-bottom-color, 2.5%);
+
+  @if $borderSides {
+    border-right-color: darker($bevel-top-color, 3.5%);
+    border-left-color: darker($bevel-bottom-color, 2%);
+  }
+}
+
+@mixin bevel-active($borderSides: false){
+  @include gradient(darker($bevel-top-color, 3.5%), lighter($bevel-bottom-color, 2.5%), 0%, 55%);
+  border-top-color: darker($bevel-top-color, 6%);
+  border-bottom-color: lighter($bevel-bottom-color, 1%);
+
+  @if $borderSides {
+    border-right-color: darker($bevel-top-color, 3.5%);
+    border-left-color: darker($bevel-bottom-color, 2%);
+  }
+}
+
+
+
+
+

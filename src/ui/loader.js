@@ -26,6 +26,7 @@ $.zupaLoader = function(element, options) {
     var $loaderBox = $loader.find(".loader-box");
     var $loaderMessage = $loader.find(".loader-message");
 
+
     /**
      * INITIALIZE
      */
@@ -37,6 +38,7 @@ $.zupaLoader = function(element, options) {
         //Binding: Parent resize
         $parent.on('sizeHasChanged', function(event){
             if(event.target == $parent[0]){
+                console.log("PARENT RESIZE");
                 updateAlignment();
             }
         });
@@ -56,8 +58,8 @@ $.zupaLoader = function(element, options) {
             $parent.append($loader);
         }
 
-        updateAlignment();
         $loader.show();
+        updateAlignment();
     };
 
 
@@ -103,7 +105,7 @@ $.zupaLoader = function(element, options) {
         var boxWidth = $loaderBox.outerWidth();
         var boxHeight = $loaderBox.outerHeight();
 
-        if(boxLeft < 1 || boxTop < 1) {
+        if(boxWidth > parentWidth || boxHeight > parentHeight) {
             $loaderBox.hide();
         }else {
             $loaderBox.show();
@@ -113,6 +115,7 @@ $.zupaLoader = function(element, options) {
         var boxTop = (parentHeight - boxHeight) / 2;
 
         $loaderBox.css({left: boxLeft, top: boxTop});
+
     };
 
     //Initialize

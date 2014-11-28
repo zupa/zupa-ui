@@ -317,3 +317,8 @@
 .mCSB_inside > .mCSB_container{
   margin-right: 17px !important;
 }
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+  background-color: rgba(255, 255, 255, 0.3);
+}

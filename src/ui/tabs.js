@@ -344,14 +344,19 @@ $.zupaTabs = function(element, options) {
 
         //Show selected tabs content
         $selectedTab.addClass("active");
+
         var contentSelector = $selectedTab.attr("rel");
-        $tabContainer.find(contentSelector).show();
+        var $selectedTabContainer = $tabContainer.find(contentSelector);
+
+        //Show container
+        $selectedTabContainer.show();
 
         //Scroll to top
-        $tabContainer.find(contentSelector).mCustomScrollbar("update");
+        $selectedTabContainer.mCustomScrollbar("update");
 
         //Broadcast a size change in the container
         $tabContainer.trigger("sizeHasChanged");
+        $selectedTabContainer.trigger("sizeHasChanged");
     };
 
     /**

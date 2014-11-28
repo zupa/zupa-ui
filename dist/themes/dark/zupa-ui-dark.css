@@ -1,3 +1,12 @@
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
 html {
   height: 100%; }
 
@@ -7,7 +16,7 @@ body {
   min-width: 100%;
   padding: 0px;
   margin: 0px;
-  color: #E3EAEF;
+  color: #d9dde0;
   font-family: "Open Sans", sans-serif;
   font-size: 11px;
   overflow: hidden;
@@ -15,7 +24,7 @@ body {
 
 /* =================== STYLES =================== */
 h1, h2, h3, h4, h5, h6 {
-  color: #E3EAEF;
+  color: #d9dde0;
   font-weight: 600;
   margin: 0px 0px 20px 0px; }
 
@@ -38,7 +47,7 @@ h6 {
   font-size: 10px; }
 
 a {
-  color: #83BFEA;
+  color: #83bfea;
   text-decoration: none; }
 
 a:hover {
@@ -51,6 +60,15 @@ a:hover {
   padding: 10px;
   color: #9AA2A8; }
 
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
 /* =================== BUTTONS =================== */
 .gui-btn {
   display: inline-block;
@@ -106,6 +124,15 @@ button.gui-btn {
   vertical-align: middle;
   margin-right: 5px; }
 
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
 /* =================== FORM =================== */
 .gui-form {
   margin-top: 10px; }
@@ -125,7 +152,7 @@ input, textarea, select {
   /* IE10+ */
   background: linear-gradient(to bottom, #222629 0%, #262a2e 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222629', endColorstr='#262a2e',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222629', endColorstr='#262a2e',GradientType=0 );
   /* IE6-8 */
   -webkit-box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 0px 0px #373c40;
   -moz-box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 0px 0px #373c40;
@@ -381,9 +408,106 @@ input[type="radio"]:checked + label {
   color: #bac6d0; }
 
 /* INDENTED */
-.gui-form.indented .button-group {
+.gui-form.form-indent .button-group {
   padding-left: 130px; }
 
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
+.gui-context-menu {
+  list-style: none;
+  display: inline-block;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  min-width: 130px;
+  z-index: 91;
+  background-color: #333a3e;
+  border: 1px solid #222629;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 1px 0px 0px #383f44;
+  -moz-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 1px 0px 0px #383f44;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 1px 0px 0px #383f44; }
+  .gui-context-menu .gui-context-menu-button {
+    position: relative;
+    height: 16px;
+    line-height: 16px;
+    padding: 6px 10px;
+    border-bottom: 1px solid #2c3236;
+    border-top: 1px solid #3a4146;
+    color: #a1abb2; }
+    .gui-context-menu .gui-context-menu-button i {
+      float: right;
+      vertical-align: top;
+      padding-top: 1px;
+      font-size: 14px;
+      margin-left: 15px; }
+    .gui-context-menu .gui-context-menu-button i.fa {
+      width: 14px;
+      text-align: center; }
+  .gui-context-menu .gui-context-menu-button:hover {
+    background-color: #394045;
+    border-top-color: #464e54;
+    cursor: pointer;
+    color: #d9dde0; }
+  .gui-context-menu .gui-context-menu-button.expanded {
+    background-color: #3a4146;
+    border-top-color: #4a535a; }
+
+.gui-context-menu .gui-context-menu-button .expand-indicator {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  display: block;
+  background: url(img/gui-button-menu-submenu-arrows.png) 0px 0px no-repeat;
+  width: 5px;
+  height: 7px; }
+
+.gui-context-menu .gui-context-menu-button .expand-arrow {
+  display: none;
+  position: absolute;
+  right: -13px;
+  top: 2px;
+  background: url(img/gui-button-menu-submenu-arrows.png) 0px -13px no-repeat;
+  height: 27px;
+  width: 13px; }
+
+.gui-context-menu .gui-context-menu-button.expanded .expand-arrow {
+  display: block; }
+
+.gui-context-menu .menu-bridge {
+  display: block;
+  position: absolute;
+  left: -1px;
+  top: -4px;
+  height: 4px;
+  background-color: #33393d;
+  border-right: 1px solid #3a4145;
+  border-left: 1px solid #222629; }
+
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
 /* =================== ACCORDION =================== */
 .gui-accordion {
   display: block;
@@ -424,235 +548,128 @@ input[type="radio"]:checked + label {
   border: 1px solid #212528;
   background-color: #2A2F33; }
 
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
 /* =================== BUTTON MENU =================== */
 .gui-button-menu {
   display: block;
   width: 100%;
   height: 100%;
   background: #394045;
-  /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzM5NDA0NSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyZDMyMzYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-  background: -moz-linear-gradient(top, #394045 0%, #2d3236 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #394045), color-stop(100%, #2d3236));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #394045 0%, #2d3236 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #394045 0%, #2d3236 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #394045 0%, #2d3236 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #394045 0%, #2d3236 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#394045', endColorstr='#2d3236',GradientType=0 );
-  /* IE6-8 */
-  border-top: 1px solid #5c6266;
-  border-bottom: 1px solid #292d31; }
+  background: -moz-linear-gradient(top, #394045 0%, #2d3337 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #394045), color-stop(100%, #2d3337));
+  background: -webkit-linear-gradient(top, #394045 0%, #2d3337 100%);
+  background: -o-linear-gradient(top, #394045 0%, #2d3337 100%);
+  background: -ms-linear-gradient(top, #394045 0%, #2d3337 100%);
+  background: linear-gradient(to bottom, #394045 0%, #2d3337 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+  border-top: 1px solid #505a61;
+  border-bottom: 1px solid #2a2f33;
+  color: #bdc4c9; }
+  .gui-button-menu .gui-button-menu-main {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: -1px; }
+    .gui-button-menu .gui-button-menu-main li {
+      display: block;
+      float: left;
+      background: #394045;
+      background: -moz-linear-gradient(top, #394045 0%, #2d3337 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #394045), color-stop(100%, #2d3337));
+      background: -webkit-linear-gradient(top, #394045 0%, #2d3337 100%);
+      background: -o-linear-gradient(top, #394045 0%, #2d3337 100%);
+      background: -ms-linear-gradient(top, #394045 0%, #2d3337 100%);
+      background: linear-gradient(to bottom, #394045 0%, #2d3337 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      border-top: 1px solid #505a61;
+      border-bottom: 1px solid #2a2f33;
+      color: #bdc4c9;
+      border-right: 1px solid #394045;
+      border-left: 1px solid #292e31;
+      text-align: center; }
+      .gui-button-menu .gui-button-menu-main li .button-label {
+        vertical-align: top; }
+      .gui-button-menu .gui-button-menu-main li i {
+        vertical-align: top;
+        font-size: 16px;
+        margin-right: 5px;
+        text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.1); }
+    .gui-button-menu .gui-button-menu-main li:first-child {
+      border-left: none; }
+    .gui-button-menu .gui-button-menu-main li:last-child {
+      -webkit-box-shadow: 1px 0px 0px 0px #292e31;
+      -moz-box-shadow: 1px 0px 0px 0px #292e31;
+      box-shadow: 1px 0px 0px 0px #292e31; }
+    .gui-button-menu .gui-button-menu-main li:hover {
+      background: #40484d;
+      background: -moz-linear-gradient(top, #40484d 0%, #30363a 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #40484d), color-stop(100%, #30363a));
+      background: -webkit-linear-gradient(top, #40484d 0%, #30363a 100%);
+      background: -o-linear-gradient(top, #40484d 0%, #30363a 100%);
+      background: -ms-linear-gradient(top, #40484d 0%, #30363a 100%);
+      background: linear-gradient(to bottom, #40484d 0%, #30363a 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      border-top: 1px solid #606c74;
+      border-bottom: 1px solid #292e31;
+      cursor: pointer;
+      color: #d9dde0;
+      border-right-color: #454d53; }
+    .gui-button-menu .gui-button-menu-main li.expanded {
+      background: #31373b;
+      background: -moz-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #31373b), color-stop(55%, #333a3e));
+      background: -webkit-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: -o-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: -ms-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: linear-gradient(to bottom, #31373b 0%, #333a3e 55%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      border-top-color: #2b3034;
+      border-bottom-color: #333a3e;
+      border-right-color: #31373b;
+      border-left-color: #292e31; }
+    .gui-button-menu .gui-button-menu-main li:active {
+      background: #31373b;
+      background: -moz-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #31373b), color-stop(55%, #333a3e));
+      background: -webkit-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: -o-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: -ms-linear-gradient(top, #31373b 0%, #333a3e 55%);
+      background: linear-gradient(to bottom, #31373b 0%, #333a3e 55%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      border-top-color: #2b3034;
+      border-bottom-color: #30363a;
+      border-right-color: #31373b;
+      border-left-color: #292e31; }
+    .gui-button-menu .gui-button-menu-main li.button-bolder .button-label {
+      font-weight: 700;
+      text-transform: uppercase; }
+    .gui-button-menu .gui-button-menu-main li.button-bigger .button-label {
+      padding: 0px 5px; }
+    .gui-button-menu .gui-button-menu-main li.button-bigger i {
+      font-size: 22px;
+      margin-right: 0px;
+      margin-bottom: 7px; }
+    .gui-button-menu .gui-button-menu-main .gui-context-menu {
+      top: 28px;
+      left: 0px; }
 
-.gui-button-menu .gui-button-menu-main {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-top: -1px; }
-
-.gui-button-menu .gui-button-menu-main li {
-  display: block;
-  float: left;
-  border-right: 1px solid #43494e;
-  border-left: 1px solid #292d31;
-  border-top: 1px solid #5c6266;
-  border-bottom: 1px solid #2b2f33;
-  color: #bcc1c5;
-  text-align: center; }
-
-.gui-button-menu .gui-button-menu-main li .button-label {
-  vertical-align: top;
-  /* 	height: 20px; */
-  /* 	line-height: 20px; */ }
-
-.gui-button-menu .gui-button-menu-main li:first-child {
-  border-left: none; }
-
-.gui-button-menu .gui-button-menu-main li:last-child {
-  -webkit-box-shadow: 1px 0px 0px 0px #292d31;
-  -moz-box-shadow: 1px 0px 0px 0px #292d31;
-  box-shadow: 1px 0px 0px 0px #292d31; }
-
-.gui-button-menu .gui-button-menu-main li:hover {
-  cursor: pointer;
-  background: #464e54;
-  /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ2NGU1NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzNDNhM2UiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-  background: -moz-linear-gradient(top, #464e54 0%, #343a3e 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #464e54), color-stop(100%, #343a3e));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #464e54 0%, #343a3e 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #464e54 0%, #343a3e 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #464e54 0%, #343a3e 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #464e54 0%, #343a3e 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#464e54', endColorstr='#343a3e',GradientType=0 );
-  /* IE6-8 */
-  border-top-color: #666d72;
-  border-bottom-color: #2e3337;
-  border-right-color: #494f55;
-  color: #e3eaef; }
-
-.gui-button-menu .gui-button-menu-main li:active {
-  background: #25292d;
-  /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIzNCUiIHN0b3AtY29sb3I9IiMyNTI5MmQiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjgyYzMwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
-  background: -moz-linear-gradient(top, #25292d 34%, #282c30 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(34%, #25292d), color-stop(100%, #282c30));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #25292d 34%, #282c30 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #25292d 34%, #282c30 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #25292d 34%, #282c30 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #25292d 34%, #282c30 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25292d', endColorstr='#282c30',GradientType=0 );
-  /* IE6-8 */
-  border-top-color: #23272B;
-  border-right-color: #23272B;
-  border-bottom-color: #282c30;
-  color: #e3eaef; }
-
-.gui-button-menu .gui-button-menu-main li.expanded {
-  background: #31363a;
-  /* Old browsers */
-  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMxMzYzYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iIzMzMzkzZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-  background: -moz-linear-gradient(top, #31363a 0%, #33393d 55%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #31363a), color-stop(55%, #33393d));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #31363a 0%, #33393d 55%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #31363a 0%, #33393d 55%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #31363a 0%, #33393d 55%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #31363a 0%, #33393d 55%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#31363a', endColorstr='#33393d',GradientType=0 );
-  /* IE6-8 */
-  border-top-color: #2d3135;
-  border-right-color: #3a4145;
-  border-bottom-color: #33393d;
-  border-left-color: #222629; }
-
-.gui-button-menu .gui-button-menu-main li i {
-  vertical-align: top;
-  font-size: 16px;
-  margin-right: 5px;
-  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.1); }
-
-.gui-button-menu .gui-button-menu-main li.button-bolder .button-label {
-  font-weight: 700;
-  text-transform: uppercase; }
-
-.gui-button-menu .gui-button-menu-main li.button-bigger .button-label {
-  padding: 0px 5px; }
-
-.gui-button-menu .gui-button-menu-main li.button-bigger i {
-  font-size: 22px;
-  margin-right: 0px;
-  margin-bottom: 7px; }
-
-/* Submenus */
-.gui-button-menu .gui-button-menu-submenu {
-  list-style: none;
-  display: inline-block;
-  position: absolute;
-  top: 28px;
-  left: 0px;
-  background-color: red;
-  margin: 0;
-  padding: 0;
-  min-width: 130px;
-  z-index: 91;
-  background-color: #33393d;
-  border: 1px solid #222629;
-  -webkit-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px 0px #474c51;
-  -moz-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px 0px #474c51;
-  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2), inset 0px 1px 0px 0px #474c51; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button {
-  position: relative;
-  height: 16px;
-  line-height: 16px;
-  padding: 6px 10px;
-  border-bottom: 1px solid #2e3337;
-  border-top: 1px solid #3a4145;
-  color: #bcc1c5; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button:hover {
-  background-color: #262a2e;
-  border-bottom-color: #262a2e;
-  border-top-color: #24272b;
-  cursor: pointer;
-  color: #e3eaef; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button i {
-  float: right;
-  vertical-align: top;
-  padding-top: 1px;
-  font-size: 14px;
-  margin-left: 15px;
-  /* 	text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.1); */ }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button i.fa {
-  width: 14px;
-  text-align: center; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button.expanded {
-  background-color: #262a2e;
-  border-bottom-color: #262a2e;
-  border-top-color: #24272b; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button .gui-button-expand-indicator {
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  display: block;
-  background: url(img/gui-button-menu-submenu-arrows.png) 0px 0px no-repeat;
-  width: 5px;
-  height: 7px; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button .gui-button-expand-arrow {
-  display: none;
-  position: absolute;
-  right: -13px;
-  top: 2px;
-  background: url(img/gui-button-menu-submenu-arrows.png) 0px -13px no-repeat;
-  height: 27px;
-  width: 13px; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-submenu-button.expanded .gui-button-expand-arrow {
-  display: block; }
-
-.gui-button-menu .gui-button-menu-submenu .gui-button-menu-bridge {
-  display: block;
-  position: absolute;
-  left: -1px;
-  top: -4px;
-  background: red;
-  height: 4px;
-  background-color: #33393d;
-  border-right: 1px solid #3a4145;
-  border-left: 1px solid #222629; }
-
+/* ===================================================================
+   GLOBAL PARAMETERS
+   =================================================================== */
+/* ===================================================================
+   MIXINS
+   =================================================================== */
+/* ===================================================================
+   BLENDS
+   =================================================================== */
 /* =================== TEST CHILD =================== */
 .testchild {
   position: relative;
@@ -733,12 +750,14 @@ input[type="radio"]:checked + label {
 @-webkit-keyframes stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }
+
   20% {
     -webkit-transform: scaleY(1); } }
 @keyframes stretchdelay {
   0%, 40%, 100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4); }
+
   20% {
     transform: scaleY(1);
     -webkit-transform: scaleY(1); } }
@@ -1286,7 +1305,7 @@ input[type="radio"]:checked + label {
   /* IE10+ */
   background: linear-gradient(to bottom, #3a4146 0%, #4a5359 50%, #353b3f 51%, #424a50 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a4146', endColorstr='#424a50',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3a4146', endColorstr='#424a50',GradientType=0 );
   /* IE6-9 */
   -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
@@ -1334,7 +1353,7 @@ input[type="radio"]:checked + label {
   /* IE10+ */
   background: linear-gradient(to bottom, #475158 0%, #3a4146 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#475158', endColorstr='#3a4146',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#475158', endColorstr='#3a4146',GradientType=0 );
   /* IE6-9 */
   -webkit-box-shadow: inset 0px 1px 0px 0px #73797e;
   -moz-box-shadow: inset 0px 1px 0px 0px #73797e;
@@ -1714,4 +1733,6 @@ input[type="radio"]:checked + label {
 .mCSB_inside > .mCSB_container {
   margin-right: 17px !important; }
 
-/*# sourceMappingURL=zupa-ui-dark.css.map */
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: rgba(255, 255, 255, 0.3); }
