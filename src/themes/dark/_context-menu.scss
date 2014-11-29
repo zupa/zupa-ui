@@ -4,13 +4,18 @@ $context-menu-background-color: darker($primary-color, 2.5%);
 $context-menu-border-color: darker($primary-color, 10%);
 $context-menu-highlight-color: lighter($context-menu-background-color, 2%);
 
+.gui-context-menu-container {
+  position: absolute;
+}
+
 .gui-context-menu {
-  list-style: none;
+  border-spacing: 0;
   display: inline-block;
   position: absolute;
+  top: 0px;
+  left: 0px;
   margin: 0;
   padding: 0;
-  min-width: 130px;
   z-index: 91;
 
   background-color: $context-menu-background-color;
@@ -19,29 +24,46 @@ $context-menu-highlight-color: lighter($context-menu-background-color, 2%);
   @include box-shadow($overlay-element-shadows, inset 0px 1px 0px 0px $context-menu-highlight-color);
 
   .gui-context-menu-button {
-    position: relative;
-    height: 16px;
-    line-height: 16px;
-    padding: 6px 10px;
-
-    border-bottom: 1px solid darker($context-menu-background-color, 3%);
-    border-top: 1px solid lighter($context-menu-background-color, 3%);
-
     color: darker($text-color, 20%);
 
+    td {
+      position: relative;
+      min-width: 80px;
+      height: 16px;
+      line-height: 16px;
+      padding: 6px 35px 6px 10px;
+      white-space: nowrap;
+
+      border-bottom: 1px solid darker($context-menu-background-color, 3%);
+      border-top: 1px solid lighter($context-menu-background-color, 3%);
+    }
+
     i {
-      float: right;
-      vertical-align: top;
-      padding-top: 1px;
+      top: 7px;
+      display: inline-block;
+      position: absolute;
+      right: 10px;
       font-size: 14px;
-      margin-left: 15px;
     }
 
     i.fa {
       width: 14px;
       text-align: center;
     }
+
+    .expand-indicator {
+      position: absolute;
+      right: 0px;
+      top: 11px;
+      display: block;
+      width: 5px;
+      height: 7px;
+
+      @include arrow(5px, 7px, right, darker($context-menu-background-color, 4%));
+    }
   }
+
+  @include box-arrow('.gui-context-menu-button.expanded td', 4px, lighter($context-menu-background-color, 2.5%), lighter($context-menu-background-color, 8%));
 
   .gui-context-menu-button:hover {
     background-color: lighter($context-menu-background-color, 2.5%);
@@ -53,45 +75,24 @@ $context-menu-highlight-color: lighter($context-menu-background-color, 2%);
   .gui-context-menu-button.expanded {
     background-color: lighter($context-menu-background-color, 3%);
     border-top-color: lighter($context-menu-background-color, 10%);
+
+    .expand-indicator {
+      display: none;
+    }
   }
 }
 
 
 
 
-
-.gui-context-menu .gui-context-menu-button .expand-indicator {
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  display: block;
-  background: url(img/gui-button-menu-submenu-arrows.png) 0px 0px no-repeat;
-  width: 5px;
-  height: 7px;
-}
-
-.gui-context-menu .gui-context-menu-button .expand-arrow {
-  display: none;
-  position: absolute;
-  right: -13px;
-  top: 2px;
-  background: url(img/gui-button-menu-submenu-arrows.png) 0px -13px no-repeat;
-  height: 27px;
-  width: 13px;
-}
-
-.gui-context-menu .gui-context-menu-button.expanded .expand-arrow {
-  display: block;
-}
-
-.gui-context-menu .menu-bridge {
-  display: block;
-  position: absolute;
-  left: -1px;
-  top: -4px;
-  height: 4px;
-  background-color: #33393d;
-
-  border-right: 1px solid #3a4145;
-  border-left: 1px solid #222629;
-}
+//.gui-context-menu .menu-bridge {
+//  display: block;
+//  position: absolute;
+//  left: -1px;
+//  top: -4px;
+//  height: 4px;
+//  background-color: #33393d;
+//
+//  border-right: 1px solid #3a4145;
+//  border-left: 1px solid #222629;
+//}

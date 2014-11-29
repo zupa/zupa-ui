@@ -26,9 +26,8 @@ $.zupaContextMenu = function(element, options) {
             }]
         }],
         trigger: 'leftclick',       // What opens the menu: leftclick | rightclick | doubleclick | none
-        bolder: false,
         browsingMenus: false,		// Flag the indicates when menus should be opened on hover'
-        expandedButtonMenu: null,	// Index of which buttons menu that is expanded
+        expandedMenuIndex: null,	// Index of which buttons menu that is expanded
         menuDelay: 400				// Number of milliseconds delay before opening submenu
     };
 
@@ -36,6 +35,7 @@ $.zupaContextMenu = function(element, options) {
     plugin.settings = {};
 
     var $element = $(element);
+    var $container = null;
 
 
     /**
@@ -46,12 +46,6 @@ $.zupaContextMenu = function(element, options) {
         //Extend default options
         plugin.settings = $.extend(true, {}, defaults, options);
 
-        //Add class
-
-
-        //Draw buttons
-        //drawButtons();
-
         //Binding: Parent resize
         $element.parent().on('sizeHasChanged', function(event){
             if(event.target == $element.parent()[0]){
@@ -59,52 +53,13 @@ $.zupaContextMenu = function(element, options) {
             }
         });
 
-        // BIND: Main button click
-//        $buttonContainer.on("click", "li", function(){
-//
-//            //Custom callback
-//            if(typeof plugin.settings.onClick  == "function"){
-//                plugin.settings.onClick();
-//            }
-//        });
-
-        //BIND: Main button mouse down
-//        $buttonContainer.on("mousedown", "li", function(){
-//            //Button has menu
-//            var buttonIndex = $(this).index();
-//
-//            //Open menu
-//            if(plugin.settings.expandedButtonMenu == buttonIndex){
-//                plugin.closeAllMenus(true);
-//            }else {
-//                openMenu(buttonIndex, $(this));
-//            }
-//        });
-
-        // BIND: Main button hover
-//        $buttonContainer.on("mouseover", "li", function(){
-//
-//            //Button index
-//            var buttonIndex = $(this).index();
-//
-//            //Menu not active
-//            if(plugin.settings.browsingMenus && plugin.settings.expandedButtonMenu != buttonIndex){
-//
-//                //Close all menu's
-//                plugin.closeAllMenus();
-//
-//                //Open menu
-//                openMenu(buttonIndex, $(this));
-//            }
-//        });
-
         // BIND: Close menus if click anywhere else
         $(document).on("mousedown", "body", function(e){
 
             var parentMenus = $(e.target).closest(".gui-context-menu");
             var parentButtons = $(e.target).closest(".gui-context-menu-button");
 
-            if(parentMenus.length == 0 && plugin.settings.expandedButtonMenu != null && parentButtons.length == 0){
+            if(parentMenus.length == 0 && parentButtons.length == 0){
 
                 //Close all menus and stop browsing
                 plugin.closeAllMenus(true);
@@ -112,14 +67,14 @@ $.zupaContextMenu = function(element, options) {
         });
 
 
-        $element.mousedown(function(e){
-            if( e.button == 2 ) {
-                e.preventDefault();
-                openMenu(0, this);
-                return false;
-            }
-            return true;
+
+        $element.on('contextmenu', function(e){
+            openMenu(e.pageX, e.pageY);
+            return false;
         });
+
+
+
     };
 
 
@@ -127,7 +82,7 @@ $.zupaContextMenu = function(element, options) {
     /**
      * OPEN MENU
      */
-    var openMenu = function(buttonIndex, $buttonElement){
+    var openMenu = function(xPos, yPos){
 
         //Fetch menu
 //        var menu = plugin.settings.buttons[buttonIndex].menu;
@@ -153,64 +108,79 @@ $.zupaContextMenu = function(element, options) {
 //        var menuLevel = 1;
 //        var topPosition = $element.parent().height();
 //        var leftPosition = $buttonElement.position().left;
-        generateMenu(plugin.settings.menu, topPosition, leftPosition, menuLevel);
+
+        // Create container
+        $container = $('<div class="gui-context-menu-container"></div>');
+        $container.css({top: yPos, left: xPos});
+
+        //Generate menutree
+        var $menu = generateMenu(plugin.settings.menu, 1);
+
+        //Render menu
+        $(document.body).append($container);
+
+        //Show first level
+        $menu.fadeIn("fast");
+
     }
 
     /**
      * GENERATE MENU
      * Generates tree of menus
      */
-    var generateMenu = function(menu, topPosition, leftPosition, menuLevel){
+    var generateMenu = function(menu, menuLevel){
 
-        //Main element
-        var $menuElement  = $('<ul class="gui-context-menu gui-context-menu-level-'+menuLevel+'"></ul>').hide();
+
 
         //Level 1 - add bridge between button and menu
-        if(menuLevel == 1){
+//        if(menuLevel == 1){
+//
+//            //Find with of parent button
+//            var parentButtonWidth = $buttonContainer.find("li").eq(plugin.settings.expandedButtonMenu).outerWidth();
+//
+//            //If first button subtract 1px else subtract 2px
+//            if(plugin.settings.expandedButtonMenu == 0){
+//                parentButtonWidth -= 1;
+//            }else {
+//                parentButtonWidth -= 2;
+//            }
+//
+//            var $buttonMenuBridge = $('<li class="menu-bridge"></li>');
+//            $buttonMenuBridge.outerWidth(parentButtonWidth);
+//
+//            $menuElement.append($buttonMenuBridge);
+//
+//
+//        }else if(menuLevel > 1){
+//            $menuElement.hide();
+//        }
 
-            //Find with of parent button
-            var parentButtonWidth = $buttonContainer.find("li").eq(plugin.settings.expandedButtonMenu).outerWidth();
+        //Main element
+        var $menuElement  = $('<table class="gui-context-menu gui-context-menu-level-'+menuLevel+'"><tbody></tbody></table>').hide();
 
-            //If first button subtract 1px else subtract 2px
-            if(plugin.settings.expandedButtonMenu == 0){
-                parentButtonWidth -= 1;
-            }else {
-                parentButtonWidth -= 2;
-            }
-
-            var $buttonMenuBridge = $('<li class="menu-bridge"></li>');
-            $buttonMenuBridge.outerWidth(parentButtonWidth);
-
-            $menuElement.append($buttonMenuBridge);
-
-
-        }else if(menuLevel > 1){
-            $menuElement.hide();
-        }
-
-        //Items
+        //Draw menu items
         $.each(menu, function(index, button){
 
             //Label
-            var $buttonElement = $('<li class="gui-context-menu-button">'+button.label+'</li>');
+            var $buttonElement = $('<tr class="gui-context-menu-button"><td>'+button.label+'</td></tr>');
 
             //Icon
             if(button.icon != null){
-                $buttonElement.append('<i class="'+button.icon+'"></i>');
+                $buttonElement.find("td").append('<i class="'+button.icon+'"></i>');
             }
 
             //Append to menu
-            $menuElement.append($buttonElement);
+            $menuElement.find("tbody").append($buttonElement);
 
             //Continue down the menu tree
             if(button.menu != null && button.menu.length > 0){
 
                 //Generate this buttons submenu
-                var submenu = generateMenu(button.menu, topPosition, leftPosition, menuLevel+1);
+                var submenu = generateMenu(button.menu, menuLevel+1);
 
                 //Add expand arrow
-                $buttonElement.append('<span class="expand-indicator"></span>')
-                $buttonElement.append('<span class="expand-arrow"></span>');
+                $buttonElement.find("td").append('<span class="expand-indicator"></span>');
+                $buttonElement.find("td").addClass("expand-arrow");
 
                 //Show Submenu: On mouseover with delay
                 $buttonElement.mouseover(function(){
@@ -230,6 +200,7 @@ $.zupaContextMenu = function(element, options) {
                 $buttonElement.mouseleave(function(){
                     clearTimeout(this.hovertimer);
                 });
+
             }else {
 
                 //Ordinary click: returns parameters and element
@@ -253,21 +224,8 @@ $.zupaContextMenu = function(element, options) {
 
         });
 
-        //If 1. level menu, at first position, set -1px left
-        if(menuLevel == 1 && leftPosition == 0){
-            leftPosition = -1;
-        }
-
-        //Set Position
-        $menuElement.css({top: topPosition, left: leftPosition});
-
         //Render menu
-        $element.append($menuElement);
-
-        if(menuLevel == 1){
-            $menuElement.fadeIn("fast");
-        }
-
+        $container.append($menuElement);
 
         //Return menu
         return $menuElement;
@@ -283,9 +241,10 @@ $.zupaContextMenu = function(element, options) {
         $buttonElement.addClass("expanded");
 
         //Show submenu
-        var distanceFromParent = 1;
-        var submenuLeft = $buttonElement.parent().position().left + $buttonElement.parent().outerWidth() + distanceFromParent;
-        var submenuTop = $buttonElement.position().top + $buttonElement.parent().position().top;
+        var distanceFromParent = 5;
+
+        var submenuLeft = $buttonElement.closest("table").position().left + $buttonElement.parent().outerWidth() + distanceFromParent;
+        var submenuTop = $buttonElement.position().top + $buttonElement.closest("table").position().top;
         submenu.css({left: submenuLeft, top: submenuTop});
         submenu.fadeIn("fast");
     };
@@ -294,7 +253,7 @@ $.zupaContextMenu = function(element, options) {
      * CLOSE A SUBMENU
      */
     var closeSubmenus = function($ownersSubmenu, fromLevel){
-        $.each($element.find(".gui-context-menu:visible"), function(index, submenu){
+        $.each($container.find(".gui-context-menu:visible"), function(index, submenu){
 
             //Check that not owners submenu
             if($(submenu).is($ownersSubmenu)){
@@ -330,10 +289,10 @@ $.zupaContextMenu = function(element, options) {
         }
 
         //Remove all menus
-        $element.find(".gui-context-menu").remove();
+        $(document.body).find(".gui-context-menu-container").remove();
 
         //Set all buttons as retracted
-        $buttonContainer.find(".expanded").removeClass("expanded");
+        //$buttonContainer.find(".expanded").removeClass("expanded");
     }
 
     //Initialize

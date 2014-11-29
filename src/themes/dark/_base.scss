@@ -49,6 +49,71 @@ $global-contrast: 0%;
   text-shadow: $shadows;
 }
 
+// Box Arrow
+@mixin box-arrow($selector, $size, $arrowColor, $borderColor){
+
+  #{$selector}:after, #{$selector}:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+  }
+
+  #{$selector}:after {
+    border-color: rgba(0, 0, 0, 0);
+    border-left-color: $arrowColor;
+    border-width: $size;
+    margin-top: -$size;
+  }
+
+  #{$selector}:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-left-color: $borderColor;
+    border-width: $size+1;
+    margin-top: -($size+1);
+  }
+}
+
+// Arrow
+@mixin arrow($width: 5px, $height: 5px, $direction: up, $color: red) {
+
+  width: 0;
+  height:0;
+
+  // Right
+  @if $direction == right {
+    border-top: $height / 2 solid transparent;
+    border-bottom: $height / 2 solid transparent;
+    border-left: $width solid $color;
+  }
+
+  // Left
+  @if $direction == left {
+    border-top: $height / 2 solid transparent;
+    border-bottom: $height / 2 solid transparent;
+    border-right: $width solid $color;
+  }
+
+  // Up
+  @if $direction == up {
+    border-left: $width / 2 solid transparent;
+    border-right: $width / 2 solid transparent;
+    border-bottom: $height solid $color;
+  }
+
+  // Down
+  @if $direction == down {
+    border-left: $width / 2 solid transparent;
+    border-right: $width / 2 solid transparent;
+    border-top: $height solid $color;
+  }
+}
+
+
+
 @function darker($color, $percent) {
 
   $newpercent: $percent + $global-contrast;

@@ -16,7 +16,7 @@ body {
   min-width: 100%;
   padding: 0px;
   margin: 0px;
-  color: #d9dde0;
+  color: #D9DDE0;
   font-family: "Open Sans", sans-serif;
   font-size: 11px;
   overflow: hidden;
@@ -24,7 +24,7 @@ body {
 
 /* =================== STYLES =================== */
 h1, h2, h3, h4, h5, h6 {
-  color: #d9dde0;
+  color: #D9DDE0;
   font-weight: 600;
   margin: 0px 0px 20px 0px; }
 
@@ -47,7 +47,7 @@ h6 {
   font-size: 10px; }
 
 a {
-  color: #83bfea;
+  color: #83BFEA;
   text-decoration: none; }
 
 a:hover {
@@ -152,7 +152,7 @@ input, textarea, select {
   /* IE10+ */
   background: linear-gradient(to bottom, #222629 0%, #262a2e 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222629', endColorstr='#262a2e',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222629', endColorstr='#262a2e',GradientType=0 );
   /* IE6-8 */
   -webkit-box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 0px 0px #373c40;
   -moz-box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 0px 0px #373c40;
@@ -429,13 +429,17 @@ input[type="radio"]:checked + label {
 /* ===================================================================
    BLENDS
    =================================================================== */
+.gui-context-menu-container {
+  position: absolute; }
+
 .gui-context-menu {
-  list-style: none;
+  border-spacing: 0;
   display: inline-block;
   position: absolute;
+  top: 0px;
+  left: 0px;
   margin: 0;
   padding: 0;
-  min-width: 130px;
   z-index: 91;
   background-color: #333a3e;
   border: 1px solid #222629;
@@ -443,61 +447,65 @@ input[type="radio"]:checked + label {
   -moz-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 1px 0px 0px #383f44;
   box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 1px 0px 0px #383f44; }
   .gui-context-menu .gui-context-menu-button {
-    position: relative;
-    height: 16px;
-    line-height: 16px;
-    padding: 6px 10px;
-    border-bottom: 1px solid #2c3236;
-    border-top: 1px solid #3a4146;
     color: #a1abb2; }
+    .gui-context-menu .gui-context-menu-button td {
+      position: relative;
+      min-width: 80px;
+      height: 16px;
+      line-height: 16px;
+      padding: 6px 35px 6px 10px;
+      white-space: nowrap;
+      border-bottom: 1px solid #2c3236;
+      border-top: 1px solid #3a4146; }
     .gui-context-menu .gui-context-menu-button i {
-      float: right;
-      vertical-align: top;
-      padding-top: 1px;
-      font-size: 14px;
-      margin-left: 15px; }
+      top: 7px;
+      display: inline-block;
+      position: absolute;
+      right: 10px;
+      font-size: 14px; }
     .gui-context-menu .gui-context-menu-button i.fa {
       width: 14px;
       text-align: center; }
+    .gui-context-menu .gui-context-menu-button .expand-indicator {
+      position: absolute;
+      right: 0px;
+      top: 11px;
+      display: block;
+      width: 5px;
+      height: 7px;
+      width: 0;
+      height: 0;
+      border-top: 3.5px solid transparent;
+      border-bottom: 3.5px solid transparent;
+      border-left: 5px solid #2a2f33; }
+  .gui-context-menu .gui-context-menu-button.expanded td:after, .gui-context-menu .gui-context-menu-button.expanded td:before {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute; }
+  .gui-context-menu .gui-context-menu-button.expanded td:after {
+    border-color: transparent;
+    border-left-color: #394045;
+    border-width: 4px;
+    margin-top: -4px; }
+  .gui-context-menu .gui-context-menu-button.expanded td:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-left-color: #464e54;
+    border-width: 5px;
+    margin-top: -5px; }
   .gui-context-menu .gui-context-menu-button:hover {
     background-color: #394045;
     border-top-color: #464e54;
     cursor: pointer;
-    color: #d9dde0; }
+    color: #D9DDE0; }
   .gui-context-menu .gui-context-menu-button.expanded {
     background-color: #3a4146;
     border-top-color: #4a535a; }
-
-.gui-context-menu .gui-context-menu-button .expand-indicator {
-  position: absolute;
-  right: 0px;
-  top: 10px;
-  display: block;
-  background: url(img/gui-button-menu-submenu-arrows.png) 0px 0px no-repeat;
-  width: 5px;
-  height: 7px; }
-
-.gui-context-menu .gui-context-menu-button .expand-arrow {
-  display: none;
-  position: absolute;
-  right: -13px;
-  top: 2px;
-  background: url(img/gui-button-menu-submenu-arrows.png) 0px -13px no-repeat;
-  height: 27px;
-  width: 13px; }
-
-.gui-context-menu .gui-context-menu-button.expanded .expand-arrow {
-  display: block; }
-
-.gui-context-menu .menu-bridge {
-  display: block;
-  position: absolute;
-  left: -1px;
-  top: -4px;
-  height: 4px;
-  background-color: #33393d;
-  border-right: 1px solid #3a4145;
-  border-left: 1px solid #222629; }
+    .gui-context-menu .gui-context-menu-button.expanded .expand-indicator {
+      display: none; }
 
 /* ===================================================================
    GLOBAL PARAMETERS
@@ -569,7 +577,7 @@ input[type="radio"]:checked + label {
   background: -o-linear-gradient(top, #394045 0%, #2d3337 100%);
   background: -ms-linear-gradient(top, #394045 0%, #2d3337 100%);
   background: linear-gradient(to bottom, #394045 0%, #2d3337 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
   border-top: 1px solid #505a61;
   border-bottom: 1px solid #2a2f33;
   color: #bdc4c9; }
@@ -588,7 +596,7 @@ input[type="radio"]:checked + label {
       background: -o-linear-gradient(top, #394045 0%, #2d3337 100%);
       background: -ms-linear-gradient(top, #394045 0%, #2d3337 100%);
       background: linear-gradient(to bottom, #394045 0%, #2d3337 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
       border-top: 1px solid #505a61;
       border-bottom: 1px solid #2a2f33;
       color: #bdc4c9;
@@ -616,11 +624,11 @@ input[type="radio"]:checked + label {
       background: -o-linear-gradient(top, #40484d 0%, #30363a 100%);
       background: -ms-linear-gradient(top, #40484d 0%, #30363a 100%);
       background: linear-gradient(to bottom, #40484d 0%, #30363a 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
       border-top: 1px solid #606c74;
       border-bottom: 1px solid #292e31;
       cursor: pointer;
-      color: #d9dde0;
+      color: #D9DDE0;
       border-right-color: #454d53; }
     .gui-button-menu .gui-button-menu-main li.expanded {
       background: #31373b;
@@ -630,7 +638,7 @@ input[type="radio"]:checked + label {
       background: -o-linear-gradient(top, #31373b 0%, #333a3e 55%);
       background: -ms-linear-gradient(top, #31373b 0%, #333a3e 55%);
       background: linear-gradient(to bottom, #31373b 0%, #333a3e 55%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
       border-top-color: #2b3034;
       border-bottom-color: #333a3e;
       border-right-color: #31373b;
@@ -643,7 +651,7 @@ input[type="radio"]:checked + label {
       background: -o-linear-gradient(top, #31373b 0%, #333a3e 55%);
       background: -ms-linear-gradient(top, #31373b 0%, #333a3e 55%);
       background: linear-gradient(to bottom, #31373b 0%, #333a3e 55%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$topColor', endColorstr='$bottomColor',GradientType=0 );
       border-top-color: #2b3034;
       border-bottom-color: #30363a;
       border-right-color: #31373b;
@@ -750,14 +758,12 @@ input[type="radio"]:checked + label {
 @-webkit-keyframes stretchdelay {
   0%, 40%, 100% {
     -webkit-transform: scaleY(0.4); }
-
   20% {
     -webkit-transform: scaleY(1); } }
 @keyframes stretchdelay {
   0%, 40%, 100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4); }
-
   20% {
     transform: scaleY(1);
     -webkit-transform: scaleY(1); } }
@@ -1305,7 +1311,7 @@ input[type="radio"]:checked + label {
   /* IE10+ */
   background: linear-gradient(to bottom, #3a4146 0%, #4a5359 50%, #353b3f 51%, #424a50 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3a4146', endColorstr='#424a50',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3a4146', endColorstr='#424a50',GradientType=0 );
   /* IE6-9 */
   -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.6);
@@ -1353,7 +1359,7 @@ input[type="radio"]:checked + label {
   /* IE10+ */
   background: linear-gradient(to bottom, #475158 0%, #3a4146 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#475158', endColorstr='#3a4146',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#475158', endColorstr='#3a4146',GradientType=0 );
   /* IE6-9 */
   -webkit-box-shadow: inset 0px 1px 0px 0px #73797e;
   -moz-box-shadow: inset 0px 1px 0px 0px #73797e;
@@ -1736,3 +1742,5 @@ input[type="radio"]:checked + label {
 .mCS-light-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
 .mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
   background-color: rgba(255, 255, 255, 0.3); }
+
+/*# sourceMappingURL=zupa-ui-dark.css.map */
