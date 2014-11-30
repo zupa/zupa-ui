@@ -1,4 +1,4 @@
-/*! zupa-ui 0.1.0 2014-11-29 */
+/*! zupa-ui 0.1.0 2014-11-30 */
 
 !(function ($) {
 
@@ -78,6 +78,7 @@ $.zupaAccordion = function(element, options) {
         var $activePane = $element.find(".active .contentpane");
         $activePane.height(contentPaneHeight).show();
         $activePane.trigger("sizeHasChanged");
+
     };
 
 
@@ -209,7 +210,7 @@ $.zupaButtonMenu = function(element, options) {
             //Open menu
             if(plugin.settings.expandedButtonMenu == buttonIndex){
                 plugin.closeAllMenus(true);
-            }else {
+            }else if(plugin.settings.buttons[buttonIndex].contextMenu != null){
                 openMenu(buttonIndex, $(this));
             }
         });
@@ -227,7 +228,10 @@ $.zupaButtonMenu = function(element, options) {
                 plugin.closeAllMenus();
 
                 //Open menu
-                openMenu(buttonIndex, $(this));
+                if(plugin.settings.buttons[buttonIndex].contextMenu != null){
+                    openMenu(buttonIndex, $(this));
+                }
+
             }
         });
 
@@ -240,7 +244,7 @@ $.zupaButtonMenu = function(element, options) {
             if(parentMenus.length == 0 && plugin.settings.expandedButtonMenu != null && parentButtons.length == 0){
 
                 //Close all menus and stop browsing
-                plugin.closeAllMenus(true);
+                //plugin.closeAllMenus(true);
             }
         });
 
@@ -267,11 +271,20 @@ $.zupaButtonMenu = function(element, options) {
         $.each(plugin.settings.buttons, function(index, button){
 
             //Add element
-            var buttonTemplate = $('<li class="gui-context-menu-button"><span class="button-label">'+button.label+'</span></li>');
+            var buttonTemplate = $('<li class="gui-button-menu-button"><span class="button-label">'+button.label+'</span></li>');
 
             //Icon
             if(button.icon != null){
                 buttonTemplate.prepend('<i class="'+button.icon+'"></i>');
+            }
+
+            //Context menu
+            if(button.menu != null && button.menu.length > 0){
+                button.contextMenu = ZupaContextMenu({
+                    menu: button.menu,
+                    trigger: 'parent',
+                    parentSelector: '.gui-button-menu-button'
+                });
             }
 
             //Render
@@ -326,9 +339,8 @@ $.zupaButtonMenu = function(element, options) {
      */
     var openMenu = function(buttonIndex, $buttonElement){
 
-        //Fetch menu
-        var menu = plugin.settings.buttons[buttonIndex].menu;
-        if(menu == null || menu.length < 1 || plugin.settings.expandedButtonMenu == buttonIndex){
+        //Check if already open
+        if(plugin.settings.expandedButtonMenu == buttonIndex){
             return false;
         }
 
@@ -347,168 +359,11 @@ $.zupaButtonMenu = function(element, options) {
         $buttonElement.addClass("expanded");
 
         //Generate menu
-        var menuLevel = 1;
-        var topPosition = $element.parent().height();
-        var leftPosition = $buttonElement.position().left;
-        generateMenu(menu, topPosition, leftPosition, menuLevel);
+        var topPosition = $buttonElement.offset().top + $buttonElement.outerHeight();
+        var leftPosition = $buttonElement.offset().left;
+
+        plugin.settings.buttons[buttonIndex].contextMenu.openMenu(leftPosition, topPosition);
     }
-
-    /**
-     * GENERATE MENU
-     * Generates tree of menus
-     */
-    var generateMenu = function(menu, topPosition, leftPosition, menuLevel){
-
-        //Main element
-        var $menuElement  = $('<ul class="gui-context-menu gui-context-menu-level-'+menuLevel+'"></ul>').hide();
-
-        //Level 1 - add bridge between button and menu
-        if(menuLevel == 1){
-
-            //Find with of parent button
-            var parentButtonWidth = $buttonContainer.find("li").eq(plugin.settings.expandedButtonMenu).outerWidth();
-
-            //If first button subtract 1px else subtract 2px
-            if(plugin.settings.expandedButtonMenu == 0){
-                parentButtonWidth -= 1;
-            }else {
-                parentButtonWidth -= 2;
-            }
-
-            var $buttonMenuBridge = $('<li class="menu-bridge"></li>');
-            $buttonMenuBridge.outerWidth(parentButtonWidth);
-
-            $menuElement.append($buttonMenuBridge);
-
-
-        }else if(menuLevel > 1){
-            $menuElement.hide();
-        }
-
-        //Items
-        $.each(menu, function(index, button){
-
-            //Label
-            var $buttonElement = $('<li class="gui-context-menu-button">'+button.label+'</li>');
-
-            //Icon
-            if(button.icon != null){
-                $buttonElement.append('<i class="'+button.icon+'"></i>');
-            }
-
-            //Append to menu
-            $menuElement.append($buttonElement);
-
-            //Continue down the menu tree
-            if(button.menu != null && button.menu.length > 0){
-
-                //Generate this buttons submenu
-                var submenu = generateMenu(button.menu, topPosition, leftPosition, menuLevel+1);
-
-                //Add expand arrow
-                $buttonElement.append('<span class="expand-indicator"></span>')
-                $buttonElement.append('<span class="expand-arrow"></span>');
-
-                //Show Submenu: On mouseover with delay
-                $buttonElement.mouseover(function(){
-                    clearTimeout(this.hovertimer);
-                    this.hovertimer = setTimeout(function(){
-                        openSubmenu($buttonElement, submenu);
-                    }, plugin.settings.menuDelay);
-                });
-
-                //Show Submenu: On click
-                $buttonElement.click(function(){
-                    clearTimeout(this.hovertimer);
-                    openSubmenu($buttonElement, submenu);
-                });
-
-                //Leave button
-                $buttonElement.mouseleave(function(){
-                    clearTimeout(this.hovertimer);
-                });
-            }else {
-
-                //Ordinary click: returns parameters and element
-                $buttonElement.click(function(){
-
-                    //Custom callback
-                    if(typeof button.onClick == "function"){
-                        button.onClick(button, $buttonElement);
-                    }
-
-                    //Close all menus
-                    plugin.closeAllMenus(true);
-                });
-            }
-
-            //Mouseenter submenu button: close submenus on lower levels
-            $buttonElement.mouseenter(function(){
-                $buttonElement.siblings().removeClass("expanded");
-                closeSubmenus(submenu, menuLevel+1);
-            });
-
-        });
-
-        //If 1. level menu, at first position, set -1px left
-        if(menuLevel == 1 && leftPosition == 0){
-            leftPosition = -1;
-        }
-
-        //Set Position
-        $menuElement.css({top: topPosition, left: leftPosition});
-
-        //Render menu
-        $element.append($menuElement);
-
-        if(menuLevel == 1){
-            $menuElement.fadeIn("fast");
-        }
-
-
-        //Return menu
-        return $menuElement;
-    }
-
-
-    /**
-     * OPEN A SUBMENU
-     */
-    var openSubmenu = function($buttonElement, submenu){
-
-        //Set button state
-        $buttonElement.addClass("expanded");
-
-        //Show submenu
-        var distanceFromParent = 1;
-        var submenuLeft = $buttonElement.parent().position().left + $buttonElement.parent().outerWidth() + distanceFromParent;
-        var submenuTop = $buttonElement.position().top + $buttonElement.parent().position().top;
-        submenu.css({left: submenuLeft, top: submenuTop});
-        submenu.fadeIn("fast");
-    };
-
-    /**
-     * CLOSE A SUBMENU
-     */
-    var closeSubmenus = function($ownersSubmenu, fromLevel){
-        $.each($element.find(".gui-context-menu:visible"), function(index, submenu){
-
-            //Check that not owners submenu
-            if($(submenu).is($ownersSubmenu)){
-                $(submenu).find(".expanded").removeClass("expanded");
-                return;
-            }
-
-            var classes = $(submenu).attr("class");
-            var level = classes.substring(classes.indexOf("level-") + 6);
-
-            if(level >= fromLevel){
-                $(submenu).fadeOut("fast");
-                $(submenu).find(".expanded").removeClass("expanded");
-            }
-        });
-    }
-
 
 
     /**
@@ -527,7 +382,11 @@ $.zupaButtonMenu = function(element, options) {
         }
 
         //Remove all menus
-        $element.find(".gui-context-menu").remove();
+        $.each(plugin.settings.buttons, function(index, button){
+            if(button.contextMenu != null){
+                button.contextMenu.closeMenu();
+            }
+        });
 
         //Set all buttons as retracted
         $buttonContainer.find(".expanded").removeClass("expanded");
@@ -547,62 +406,6 @@ $.fn.zupaButtonMenu = function(options) {
     });
 };
 
-$.zupaChild = function(element, options) {
-
-    var defaults = {};
-
-    var plugin = this;
-    plugin.settings = {};
-
-    var $element = $(element);
-    var $inner = null;
-
-    /**
-     * INITIALIZE
-     */
-    plugin.init = function() {
-
-        //Extend default options
-        plugin.settings = $.extend(true, {}, defaults, options);
-
-        $element.addClass("testchild");
-        $element.append('<div class="childinner"></div>');
-        $inner = $element.find(".childinner");
-
-        //Binding: Parent resize
-        $element.parent().on('sizeHasChanged', function(event){
-            if(event.target == $element.parent()[0]){
-                parentIsResized();
-            }
-        });
-
-    };
-
-    /**
-     * CENTER TO PARENT
-     */
-    var parentIsResized = function(){
-
-        var parentHeight = $element.parent().height();
-        var parentWidth = $element.parent().width();
-
-        $inner.width(parentWidth-20);
-        $inner.height(parentHeight-20);
-    };
-
-    //Initialize
-    plugin.init();
-
-};
-
-$.fn.zupaChild = function(options) {
-    return this.each(function() {
-        if (undefined == $(this).data('zupaChild')) {
-            var plugin = new $.zupaChild(this, options);
-            $(this).data('zupaChild', plugin);
-        }
-    });
-};
 $.zupaContextMenu = function(element, options) {
 
     var defaults = {
@@ -617,7 +420,8 @@ $.zupaContextMenu = function(element, options) {
                 menu: []				// 3. level menu
             }]
         }],
-        trigger: 'leftclick',       // What opens the menu: leftclick | rightclick | doubleclick | none
+        trigger: 'leftclick',       // What opens the menu: leftclick | parent
+        parentSelector: null,       // Parent element that is keeps browsing state of menu
         browsingMenus: false,		// Flag the indicates when menus should be opened on hover'
         expandedMenuIndex: null,	// Index of which buttons menu that is expanded
         menuDelay: 400				// Number of milliseconds delay before opening submenu
@@ -636,36 +440,23 @@ $.zupaContextMenu = function(element, options) {
     plugin.init = function() {
 
         //Extend default options
+        defaults.menu = null;
         plugin.settings = $.extend(true, {}, defaults, options);
 
         //Binding: Parent resize
         $element.parent().on('sizeHasChanged', function(event){
             if(event.target == $element.parent()[0]){
-                //drawButtons();
+                plugin.closeAllMenus();
             }
         });
 
-        // BIND: Close menus if click anywhere else
-        $(document).on("mousedown", "body", function(e){
-
-            var parentMenus = $(e.target).closest(".gui-context-menu");
-            var parentButtons = $(e.target).closest(".gui-context-menu-button");
-
-            if(parentMenus.length == 0 && parentButtons.length == 0){
-
-                //Close all menus and stop browsing
-                plugin.closeAllMenus(true);
-            }
-        });
-
-
-
-        $element.on('contextmenu', function(e){
-            openMenu(e.pageX, e.pageY);
-            return false;
-        });
-
-
+        //Open trigger
+        if(plugin.settings.trigger == 'leftclick'){
+            $element.on('contextmenu', function(e){
+                plugin.openMenu(e.pageX, e.pageY);
+                return false;
+            });
+        }
 
     };
 
@@ -674,7 +465,7 @@ $.zupaContextMenu = function(element, options) {
     /**
      * OPEN MENU
      */
-    var openMenu = function(xPos, yPos){
+    plugin.openMenu = function(xPos, yPos){
 
         //Fetch menu
 //        var menu = plugin.settings.buttons[buttonIndex].menu;
@@ -713,6 +504,20 @@ $.zupaContextMenu = function(element, options) {
 
         //Show first level
         $menu.fadeIn("fast");
+
+        // BIND: Close menu if click anywhere else
+        $(document).one("mousedown", "body", function(e){
+
+            var parent = $(e.target).closest(plugin.settings.parentSelector);
+            var self = $(e.target).closest(".gui-context-menu");
+
+            if(parent.length == 0 && self.length == 0){
+
+                //Close all menus and stop browsing
+                plugin.closeMenu();
+            }
+        });
+
 
     }
 
@@ -870,21 +675,14 @@ $.zupaContextMenu = function(element, options) {
      * CLOSE ALL MENUS
      * Closes all open menus
      */
-    plugin.closeAllMenus = function(stopBrowsingMenus){
+    plugin.closeMenu = function(){
 
         //Reset current expanded button menu index
         plugin.settings.expandedButtonMenu = null;
 
-        //Set variable that automatically opens menu on hover
-        if(stopBrowsingMenus){
-            plugin.settings.browsingMenus = false;
-        }
-
         //Remove all menus
         $(document.body).find(".gui-context-menu-container").remove();
 
-        //Set all buttons as retracted
-        //$buttonContainer.find(".expanded").removeClass("expanded");
     }
 
     //Initialize
@@ -1961,6 +1759,72 @@ $.fn.zupaPane = function(options) {
         if (undefined == $(this).data('zupaPane') || $(this).data('zupaPane') == "") {
             var plugin = new $.zupaPane(this, options);
             $(this).data('zupaPane', plugin);
+        }
+    });
+};
+$.zupaPlaceholder = function(element, options) {
+
+    var defaults = {
+        message: "PLACEHOLDER"
+    };
+
+    var plugin = this;
+    plugin.settings = {};
+
+    var $element = $(element);
+    var $inner = null;
+
+    /**
+     * INITIALIZE
+     */
+    plugin.init = function() {
+
+        //Extend default options
+        plugin.settings = $.extend(true, {}, defaults, options);
+
+        $element.addClass("gui-placeholder");
+        $element.append('<div class="gui-placeholder-inner"></div>');
+        $inner = $element.find(".gui-placeholder-inner");
+
+        //Message
+        if(plugin.settings.message != null){
+            $inner.text(plugin.settings.message);
+        }
+
+        //Binding: Parent resize
+        $element.parent().on('sizeHasChanged', function(event){
+            if(event.target == $element.parent()[0]){
+                updateSize();
+            }
+        });
+
+        updateSize();
+    };
+
+    /**
+     * CENTER TO PARENT
+     */
+    var updateSize = function(){
+
+        var parentHeight = $element.parent().height();
+        var parentWidth = $element.parent().width();
+
+        $inner.width(parentWidth-22);
+        $inner.height(parentHeight-22);
+
+        $inner.css("line-height", parentHeight-22+"px");
+    };
+
+    //Initialize
+    plugin.init();
+
+};
+
+$.fn.zupaPlaceholder = function(options) {
+    return this.each(function() {
+        if (undefined == $(this).data('zupaPlaceholder')) {
+            var plugin = new $.zupaPlaceholder(this, options);
+            $(this).data('zupaPlaceholder', plugin);
         }
     });
 };

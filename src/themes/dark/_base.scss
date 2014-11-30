@@ -10,6 +10,7 @@ $font-size: 11px;
 // Colors
 $primary-color: #394045;
 $text-color: #D9DDE0;
+$label-color: #D9DDE0;
 
 $link-color: #83BFEA;
 
@@ -19,6 +20,7 @@ $pane-background-color: #2a2f33;
 $overlay-element-shadows: 1px 1px 4px 0px rgba(0,0,0,0.3);
 
 $global-contrast: 0%;
+
 
 
 /* ===================================================================
@@ -47,6 +49,27 @@ $global-contrast: 0%;
 // Text Shaodw
 @mixin text-shadow($shadows...) {
   text-shadow: $shadows;
+}
+
+// Border radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Box sizing
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+// Appearance
+@mixin appearance($value){
+  -webkit-appearance:$value;
+  -moz-appearance:$value;
+  appearance:$value;
 }
 
 // Box Arrow
@@ -147,14 +170,14 @@ $global-contrast: 0%;
    =================================================================== */
 
 // Bevel
-$bevel-top-color: lighter($primary-color, 0%);
-$bevel-bottom-color: darker($primary-color, 5%);
+@mixin bevel($borderSides: false, $color: $primary-color) {
+  $bevel-top-color: lighter($color, 0%);
+  $bevel-bottom-color: darker($color, 5%);
 
-@mixin bevel($borderSides: false) {
   @include gradient($bevel-top-color, $bevel-bottom-color);
   border-top: 1px solid lighter($bevel-top-color, 10%);
   border-bottom: 1px solid darker($bevel-bottom-color, 1.5%);
-  color: darker($text-color, 10%);
+  color: darker($label-color, 10%);
 
   @if $borderSides {
     border-right: 1px solid $bevel-top-color;
@@ -162,19 +185,25 @@ $bevel-bottom-color: darker($primary-color, 5%);
   }
 }
 
-@mixin bevel-hover($borderSides: false){
+@mixin bevel-hover($borderSides: false, $color: $primary-color){
+  $bevel-top-color: lighter($color, 0%);
+  $bevel-bottom-color: darker($color, 5%);
+
   @include gradient(lighter($bevel-top-color, 3%), lighter($bevel-bottom-color, 1%));
   border-top: 1px solid lighter($bevel-top-color, 17%);
   border-bottom: 1px solid darker($bevel-bottom-color, 2%);
   cursor: pointer;
-  color: $text-color;
+  color: $label-color;
 
   @if $borderSides {
     border-right-color: lighter($bevel-top-color, 5%);
   }
 }
 
-@mixin bevel-expanded($borderSides: false){
+@mixin bevel-expanded($borderSides: false, $color: $primary-color){
+  $bevel-top-color: lighter($color, 0%);
+  $bevel-bottom-color: darker($color, 5%);
+
   @include gradient(darker($bevel-top-color, 3.5%), lighter($bevel-bottom-color, 2.5%), 0%, 55%);
   border-top-color: darker($bevel-top-color, 6%);
   border-bottom-color: lighter($bevel-bottom-color, 2.5%);
@@ -185,7 +214,10 @@ $bevel-bottom-color: darker($primary-color, 5%);
   }
 }
 
-@mixin bevel-active($borderSides: false){
+@mixin bevel-active($borderSides: false, $color: $primary-color){
+  $bevel-top-color: lighter($color, 0%);
+  $bevel-bottom-color: darker($color, 5%);
+
   @include gradient(darker($bevel-top-color, 3.5%), lighter($bevel-bottom-color, 2.5%), 0%, 55%);
   border-top-color: darker($bevel-top-color, 6%);
   border-bottom-color: lighter($bevel-bottom-color, 1%);

@@ -24,7 +24,7 @@ $context-menu-highlight-color: lighter($context-menu-background-color, 2%);
   @include box-shadow($overlay-element-shadows, inset 0px 1px 0px 0px $context-menu-highlight-color);
 
   .gui-context-menu-button {
-    color: darker($text-color, 20%);
+    color: darker($label-color, 20%);
 
     td {
       position: relative;
@@ -69,7 +69,7 @@ $context-menu-highlight-color: lighter($context-menu-background-color, 2%);
     background-color: lighter($context-menu-background-color, 2.5%);
     border-top-color: lighter($context-menu-background-color, 8%);
     cursor: pointer;
-    color: $text-color;
+    color: $label-color;
   }
 
   .gui-context-menu-button.expanded {

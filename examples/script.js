@@ -147,18 +147,18 @@ $(document).ready(function(){
             menu: [{
                 label: "New"
             },
-                {
-                    label: "Open File"
-                },
-                {
-                    label: "Open Recent"
-                },
-                {
-                    label: "Close"
-                },
-                {
-                    label: "Close All"
-                }]
+            {
+                label: "Open File"
+            },
+            {
+                label: "Open Recent"
+            },
+            {
+                label: "Close"
+            },
+            {
+                label: "Close All"
+            }]
         },
             {
                 label: "Resources",
@@ -260,6 +260,10 @@ $(document).ready(function(){
                 title: "Leverage"
             }]
     });
+
+
+    // PLACEHOLDER
+    $("#placeholder").zupaPlaceholder();
 
 
     // WINDOW ONE

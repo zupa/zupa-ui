@@ -25,7 +25,8 @@ $.zupaContextMenu = function(element, options) {
                 menu: []				// 3. level menu
             }]
         }],
-        trigger: 'leftclick',       // What opens the menu: leftclick | rightclick | doubleclick | none
+        trigger: 'leftclick',       // What opens the menu: leftclick | parent
+        parentSelector: null,       // Parent element that is keeps browsing state of menu
         browsingMenus: false,		// Flag the indicates when menus should be opened on hover'
         expandedMenuIndex: null,	// Index of which buttons menu that is expanded
         menuDelay: 400				// Number of milliseconds delay before opening submenu
@@ -44,36 +45,23 @@ $.zupaContextMenu = function(element, options) {
     plugin.init = function() {
 
         //Extend default options
+        defaults.menu = null;
         plugin.settings = $.extend(true, {}, defaults, options);
 
         //Binding: Parent resize
         $element.parent().on('sizeHasChanged', function(event){
             if(event.target == $element.parent()[0]){
-                //drawButtons();
+                plugin.closeAllMenus();
             }
         });
 
-        // BIND: Close menus if click anywhere else
-        $(document).on("mousedown", "body", function(e){
-
-            var parentMenus = $(e.target).closest(".gui-context-menu");
-            var parentButtons = $(e.target).closest(".gui-context-menu-button");
-
-            if(parentMenus.length == 0 && parentButtons.length == 0){
-
-                //Close all menus and stop browsing
-                plugin.closeAllMenus(true);
-            }
-        });
-
-
-
-        $element.on('contextmenu', function(e){
-            openMenu(e.pageX, e.pageY);
-            return false;
-        });
-
-
+        //Open trigger
+        if(plugin.settings.trigger == 'leftclick'){
+            $element.on('contextmenu', function(e){
+                plugin.openMenu(e.pageX, e.pageY);
+                return false;
+            });
+        }
 
     };
 
@@ -82,7 +70,7 @@ $.zupaContextMenu = function(element, options) {
     /**
      * OPEN MENU
      */
-    var openMenu = function(xPos, yPos){
+    plugin.openMenu = function(xPos, yPos){
 
         //Fetch menu
 //        var menu = plugin.settings.buttons[buttonIndex].menu;
@@ -121,6 +109,20 @@ $.zupaContextMenu = function(element, options) {
 
         //Show first level
         $menu.fadeIn("fast");
+
+        // BIND: Close menu if click anywhere else
+        $(document).one("mousedown", "body", function(e){
+
+            var parent = $(e.target).closest(plugin.settings.parentSelector);
+            var self = $(e.target).closest(".gui-context-menu");
+
+            if(parent.length == 0 && self.length == 0){
+
+                //Close all menus and stop browsing
+                plugin.closeMenu();
+            }
+        });
+
 
     }
 
@@ -278,21 +280,14 @@ $.zupaContextMenu = function(element, options) {
      * CLOSE ALL MENUS
      * Closes all open menus
      */
-    plugin.closeAllMenus = function(stopBrowsingMenus){
+    plugin.closeMenu = function(){
 
         //Reset current expanded button menu index
         plugin.settings.expandedButtonMenu = null;
 
-        //Set variable that automatically opens menu on hover
-        if(stopBrowsingMenus){
-            plugin.settings.browsingMenus = false;
-        }
-
         //Remove all menus
         $(document.body).find(".gui-context-menu-container").remove();
 
-        //Set all buttons as retracted
-        //$buttonContainer.find(".expanded").removeClass("expanded");
     }
 
     //Initialize

@@ -36,7 +36,7 @@
     }
 
     li:last-child {
-      @include box-shadow(1px 0px 0px 0px darken($bevel-bottom-color, 2%));
+      @include box-shadow(1px 0px 0px 0px darken($primary-color, 7%));
     }
 
     li:hover {

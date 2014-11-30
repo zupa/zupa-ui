@@ -86,6 +86,7 @@ $.zupaAccordion = function(element, options) {
         var $activePane = $element.find(".active .contentpane");
         $activePane.height(contentPaneHeight).show();
         $activePane.trigger("sizeHasChanged");
+
     };
 
 
